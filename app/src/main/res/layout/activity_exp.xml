@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exp_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_activity_background"
+    tools:context=".ExpActivity">
+
+    <EditText
+        android:id="@+id/editTextInitialPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="@string/initial_population_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@id/editTextGrowthRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextGrowthRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:ems="10"
+        android:hint="@string/growth_rate_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@id/editTextCarryingCapacity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInitialPopulation" />
+
+    <EditText
+        android:id="@+id/editTextCarryingCapacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:ems="10"
+        android:hint="@string/carrying_capacity_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@id/editTextNumberOfYears"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextGrowthRate" />
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="@string/number_of_years"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfYears"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextNumberOfYears" />
+
+    <EditText
+        android:id="@+id/editTextNumberOfYears"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginBottom="150dp"
+        android:inputType="numberDecimal"
+        android:minWidth="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonReset"
+        app:layout_constraintEnd_toStartOf="@id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCarryingCapacity" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/years"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberOfYears"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberOfYears"
+        app:layout_constraintTop_toTopOf="@+id/editTextNumberOfYears" />
+
+
+    <EditText
+        android:id="@+id/editTextPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="7dp"
+        android:maxEms="4"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCalculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@id/editTextCarryingCapacity" />
+
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/reset"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonCalculate"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/calculate"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonReset" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextCarryingCapacity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextCarryingCapacity"
+        app:layout_constraintTop_toTopOf="@+id/editTextCarryingCapacity" />
+</androidx.constraintlayout.widget.ConstraintLayout>

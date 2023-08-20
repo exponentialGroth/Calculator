@@ -1,0 +1,291 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+
+    <!--    Buttons-->
+
+    <string name="zero" translatable="false">0</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="six" translatable="false">6</string>
+    <string name="seven" translatable="false">7</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="del" translatable="false">DEL</string>
+    <string name="ac" translatable="false">AC</string>
+    <string name="ans" translatable="false">Ans</string>
+    <string name="powerOfTen" translatable="false">×10^x</string>
+    <string name="divide" translatable="false">÷</string>
+    <string name="multiply" translatable="false">×</string>
+    <string name="add" translatable="false">+</string>
+    <string name="subtract" translatable="false">-</string>
+    <string name="decimal" translatable="false">.</string>
+    <string name="equals" translatable="false">=</string>
+    <string name="abs" translatable="false">Abs</string>
+    <string name="leftBracket" translatable="false">(</string>
+    <string name="rightBracket" translatable="false">)</string>
+    <string name="SToD" translatable="false"><![CDATA[S<->D]]></string>
+    <string name="a" translatable="false">A</string>
+    <string name="b" translatable="false">B</string>
+    <string name="c" translatable="false">C</string>
+    <string name="d" translatable="false">D</string>
+    <string name="e" translatable="false">E</string>
+    <string name="f" translatable="false">F</string>
+    <string name="x" translatable="false">X</string>
+    <string name="y" translatable="false">Y</string>
+    <string name="z" translatable="false">Z</string>
+    <string name="sto" translatable="false">STO</string>
+    <string name="npr" translatable="false">nPr</string>
+    <string name="ncr" translatable="false">nCr</string>
+    <string name="eng" translatable="false">ENG</string>
+    <string name="arrow" translatable="false">←</string>
+    <string name="m_plus" translatable="false">M+</string>
+    <string name="m_minus" translatable="false">M-</string>
+    <string name="m" translatable="false">M</string>
+    <string name="pol" translatable="false">Pol</string>
+    <string name="rec" translatable="false">Rec</string>
+    <string name="comma" translatable="false">,</string>
+    <string name="hyp" translatable="false">hyp</string>
+    <string name="x_factorial" translatable="false">x!</string>
+    <string name="str_share">Share</string>
+    <string name="settings">Settings</string>
+
+    <!--  Content Descriptions-->
+
+    <string name="logAOfBaseB" translatable="false">log_a b</string>
+
+    <string name="x_2" translatable="false">x^2</string>
+    <string name="x_y" translatable="false">x^y</string>
+    <string name="log10" translatable="false">log</string>
+    <string name="ln" translatable="false">ln</string>
+    <string name="extraMinus" translatable="false">(-)</string>
+    <string name="sin" translatable="false">sin</string>
+    <string name="cos" translatable="false">cos</string>
+    <string name="tan" translatable="false">tan</string>
+
+    <string name="pi" translatable="false">Pi</string>
+    <string name="rcl" translatable="false">RCL</string>
+    <string name="euler_s_number" translatable="false">Euler\'s Number</string>
+    <string name="times_10_x" translatable="false">times 10^x</string>
+    <string name="x_cubed" translatable="false">x^3</string>
+    <string name="x_1" translatable="false">x^-1</string>
+    <string name="x_a_b" translatable="false">x + a/b</string>
+    <string name="cubic_root_of_x" translatable="false">cubic root of x</string>
+    <string name="sqrt_x" translatable="false">sqrt x</string>
+    <string name="period" translatable="false">period</string>
+    <string name="nth_root_of_x" translatable="false">nth root of x</string>
+    <string name="x_raised_to_y" translatable="false">x^y</string>
+    <string name="_10_x" translatable="false">10^x</string>
+    <string name="e_x" translatable="false">e^x</string>
+    <string name="prime_factorization">Prime Factorization</string>
+    <string name="arcsin" translatable="false">arcsin</string>
+    <string name="arccos" translatable="false">arccos</string>
+    <string name="arctan" translatable="false">arctan</string>
+    <string name="storage">storage</string>
+    <string name="fact" translatable="false"><i>FACT</i></string>
+    <string name="percent_sign" translatable="false">%</string>
+    <string name="percent">percent</string>
+    <string name="convert_mixed_fraction_to_normal_one">convert mixed fraction to normal one</string>
+
+
+    <!--    Toasts-->
+    <string name="nothing_to_share">Nothing to share.</string>
+    <string name="copied_to_clipboard">Copied to Clipboard</string>
+    <string name="nothing_to_convert">Nothing to convert</string>
+    <string name="no_conversion_eng">Nothing to convert to engineering notation.</string>
+    <string name="no_factorization">Prime factorization not possible.</string>
+    <string name="converting_error">Converting failed</string>
+    <string name="illegal_expression_exception_msg">This expression is illegal.</string>
+    <string name="parsing_error">Parsing failed</string>
+    <string name="still_calculating">Still calculating. Press DEL or AC to cancel the calculation.</string>
+    <string name="unknown_error_msg">An Error occurred.</string>
+    <string name="domain_exception">Not in the domain of %1$s</string>
+    <string name="infinity_exception">Infinitely large value occurred during the calculation.</string>
+
+    <!--    Settings/ preferences-->
+    <string name="settings_title">Settings</string>
+    <string name="general">General</string>
+
+    <string name="angle_title">Angle measurement</string>
+    <string name="angle_key" translatable="false">angle_measurement</string>
+    <string name="angle_summary">Select the unit of angle measurement</string>
+    <string name="item_degree">Degree</string>
+    <string name="item_radians">Radians</string>
+    <string name="item_gradian">Gradian</string>
+    <string-array name="angle_unit_entries">
+        <item>@string/item_degree</item>
+        <item>@string/item_radians</item>
+        <item>@string/item_gradian</item>
+    </string-array>
+    <string-array name="angle_units">
+        <item>deg</item>
+        <item>rad</item>
+        <item>gon</item>
+    </string-array>
+
+
+    <string name="results">Results</string>
+
+
+    <string name="display_result_title">Preferred output</string>
+    <string name="display_result_summary">Choose preferred output</string>
+    <string name="display_result_key" translatable="false">display_result</string>
+    <string name="display_result_item_decimal">Decimal</string>
+    <string name="display_result_item_fraction">Fraction</string>
+    <string name="display_result_item_scientific">Scientific notation</string>
+    <string name="display_result_item_eng">Engineering notation</string>
+    <string-array name="display_result_entries">
+        <item>@string/display_result_item_decimal</item>
+        <item>@string/display_result_item_fraction</item>
+        <item>@string/display_result_item_scientific</item>
+        <item>@string/display_result_item_eng</item>
+    </string-array>
+    <string-array name="display_result_values">
+        <item>decimal</item>
+        <item>fraction</item>
+        <item>scientific</item>
+        <item>engineering</item>
+    </string-array>
+
+
+    <string name="max_decimal_places_title">Displayed decimal places</string>
+    <string name="max_decimal_places_summary">Maximum number of displayed decimal places</string>
+    <string name="max_decimal_places_key" translatable="false">max_decimal_places</string>
+
+
+    <string name="round_result_title">Round results</string>
+    <string name="round_result_summary_on">Result gets rounded</string>
+    <string name="round_result_summary_off">Cut off digits</string>
+    <string name="round_result_key" translatable="false">round_results</string>
+
+
+    <string name="layout_title">Layout</string>
+    <string name="background_title">Background</string>
+
+    <string name="color_start_background_title">Background Starting Color</string>
+    <string name="color_start_background_key" translatable="false">color_start_background</string>
+    <string name="color_end_background_title">Background End Color</string>
+    <string name="color_end_background_key" translatable="false">color_end_background</string>
+
+    <string name="orientation_background_title">Orientation of background gradient</string>
+    <string name="orientation_background_key" translatable="false">angle_background</string>
+    <string name="orientation_background_summary">Select angle of gradient</string>
+    <string name="bl_tr">Bottom left to Top right</string>
+    <string name="l_r">Left to right</string>
+    <string name="tl_br">Top left to bottom right</string>
+    <string name="t_b">Top to bottom</string>
+
+    <string-array name="orientation_background_entries">
+        <item>@string/bl_tr</item>
+        <item>@string/l_r</item>
+        <item>@string/tl_br</item>
+        <item>@string/t_b</item>
+    </string-array>
+
+    <string-array name="orientation_background_values">
+        <item>@string/bl_tr</item>
+        <item>@string/l_r</item>
+        <item>@string/tl_br</item>
+        <item>@string/t_b</item>
+    </string-array>
+
+
+    <string name="colors_title">Colors</string>
+
+    <string name="color_upper_buttons_title">Upper buttons</string>
+    <string name="color_upper_buttons_key" translatable="false">color_upper_buttons</string>
+    <string name="color_upper_buttons_stroke_title">Upper buttons stroke</string>
+    <string name="color_upper_buttons_stroke_key" translatable="false">upper_buttons_stroke_color</string>
+
+    <string name="color_lower_buttons_title">Lower buttons</string>
+    <string name="color_lower_buttons_key" translatable="false">color_lower_buttons</string>
+    <string name="color_lower_buttons_stroke_title">Lower buttons stroke</string>
+    <string name="color_lower_buttons_stroke_key" translatable="false">lower_buttons_stroke_color</string>
+
+    <string name="color_deleting_buttons_title">Deleting buttons</string>
+    <string name="color_deleting_buttons_key" translatable="false">color_deleting_buttons</string>
+    <string name="color_deleting_buttons_stroke_title">Deleting buttons stroke</string>
+    <string name="color_deleting_buttons_stroke_key" translatable="false">deleting_buttons_stroke_color</string>
+
+    <string name="color_display_title">Display</string>
+    <string name="color_display_key" translatable="false">color_display</string>
+    <string name="color_display_stroke_title">Display\'s stroke</string>
+    <string name="color_display_stroke_key" translatable="false">color_display_stroke</string>
+
+    <string name="color_navigation_button_title">Navigation button</string>
+    <string name="color_navigation_button_key" translatable="false">color_navigation_button</string>
+    <string name="color_navigation_button_stroke_title">Stroke of navigation button</string>
+    <string name="color_navigation_button_stroke_key" translatable="false">color_navigation_button_stroke</string>
+
+    <string name="text_color_upper_buttons_title">Text upper buttons</string>
+    <string name="text_color_upper_buttons_key" translatable="false">text_color_upper_buttons</string>
+    <string name="text_color_lower_buttons_title">Text lower buttons</string>
+    <string name="text_color_lower_buttons_key" translatable="false">text_color_lower_buttons</string>
+    <string name="text_color_secondary_funs_title">Text of secondary functionality</string>
+    <string name="text_color_secondary_funs_key" translatable="false">text_color_secondary_funs</string>
+    <string name="text_color_variables_title">Text of variables</string>
+    <string name="text_color_variables_key" translatable="false">text_color_variables</string>
+    <string name="text_color_deleting_buttons_title">Text of deleting buttons</string>
+    <string name="text_color_deleting_buttons_key" translatable="false">text_color_deleting_buttons</string>
+    <string name="text_color_exp_growth_title">Text color Exponential Growth</string>
+    <string name="text_color_exp_growth_key" translatable="false">text_color_exp_growth</string>
+
+
+    <string name="stroke_widths_title">Stroke widths</string>
+
+    <string name="width_upper_buttons_stroke_title">Upper buttons</string>
+    <string name="width_upper_buttons_stroke_key" translatable="false">upper_buttons_stroke_width</string>
+    <string name="width_lower_buttons_stroke_title">Lower buttons</string>
+    <string name="width_lower_buttons_stroke_key" translatable="false">lower_buttons_stroke_width</string>
+    <string name="width_deleting_buttons_stroke_title">Deleting buttons</string>
+    <string name="width_deleting_buttons_stroke_key" translatable="false">deleting_buttons_stroke_width</string>
+    <string name="width_navigation_button_stroke_title">Navigation button</string>
+    <string name="width_navigation_button_stroke_key" translatable="false">navigation_button_stroke_width</string>
+    <string name="width_display_stroke_title">Display</string>
+    <string name="width_display_stroke_key" translatable="false">display_stroke_width</string>
+
+
+    <string name="corner_radii_title">Corner radii</string>
+
+    <string name="top_corner_radii_upper_buttons_title">Top corners upper buttons</string>
+    <string name="top_corner_radii_upper_buttons_key" translatable="false">top_corner_radii_upper_buttons</string>
+    <string name="bottom_corner_radii_upper_buttons_title">Bottom corners upper buttons</string>
+    <string name="bottom_corner_radii_upper_buttons_key" translatable="false">bottom_corner_radii_upper_buttons</string>
+
+    <string name="top_corner_radii_lower_buttons_title">Top corners lower buttons</string>
+    <string name="top_corner_radii_lower_buttons_key" translatable="false">top_corner_radii_lower_buttons</string>
+    <string name="bottom_corner_radii_lower_buttons_title">Bottom corners lower buttons</string>
+    <string name="bottom_corner_radii_lower_buttons_key" translatable="false">bottom_corner_radii_lower_buttons</string>
+
+    <string name="corner_radius_navigation_button_title">Navigation button</string>
+    <string name="corner_radius_navigation_button_key" translatable="false">corner_radius_navigation_button</string>
+
+
+    <string name="margins_title">Margins between button rows</string>
+
+    <string name="margin_upper_buttons_title">Upper buttons</string>
+    <string name="margin_upper_buttons_key" translatable="false">margin_upper_buttons</string>
+    <string name="margin_lower_buttons_title">Bottom buttons</string>
+    <string name="margin_lower_buttons_key" translatable="false">margin_lower_buttons</string>
+
+
+    <!--    exponential Activity-->
+    <string name="exp_button" translatable="false">Exp.</string>
+
+    <string name="exp_activity_label">Exponential Growth</string>
+    <string name="initial_population_hint">Initial population</string>
+    <string name="growth_rate_hint">Growth rate</string>
+    <string name="carrying_capacity_hint">Carrying capacity</string>
+    <string name="number_of_years">Population after</string>
+    <string name="years">years:</string>
+    <string name="population">Population</string>
+    <string name="calculate">Calculate</string>
+    <string name="reset">Reset</string>
+
+    <string name="no_calculation">Nothing to calculate!</string>
+    <string name="missing_parameters">Not enough Values!</string>
+
+</resources>

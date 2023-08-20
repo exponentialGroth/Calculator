@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/a_times_b_over_c_to_d_over_c"
+    android:tint="@color/colorTextSecondaryFuns"
+    />

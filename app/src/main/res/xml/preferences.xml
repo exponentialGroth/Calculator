@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory android:title="@string/general">
+        <ListPreference
+            android:defaultValue="deg"
+            android:dialogTitle="@string/angle_title"
+            android:entries="@array/angle_unit_entries"
+            android:entryValues="@array/angle_units"
+            android:key="@string/angle_key"
+            android:title="@string/angle_title"
+            android:summary="@string/angle_summary"
+            />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/results">
+        <ListPreference
+            android:defaultValue="decimal"
+            android:dialogTitle="@string/display_result_title"
+            android:entries="@array/display_result_entries"
+            android:entryValues="@array/display_result_values"
+            android:key="@string/display_result_key"
+            android:title="@string/display_result_title"
+            android:summary="@string/display_result_summary"
+            />
+
+        <SeekBarPreference
+            android:defaultValue="15"
+            android:max="15"
+            app:min="0"
+            android:title="@string/max_decimal_places_title"
+            android:summary="@string/max_decimal_places_summary"
+            android:key="@string/max_decimal_places_key"
+            app:showSeekBarValue="true"
+            />
+
+        <SwitchPreference
+            android:title="@string/round_result_title"
+            android:summaryOn="@string/round_result_summary_on"
+            android:summaryOff="@string/round_result_summary_off"
+            android:defaultValue="true"
+            android:key="@string/round_result_key"
+            />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/layout_title">
+        <PreferenceCategory android:title="@string/background_title">
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_start_background_title"
+                android:key="@string/color_start_background_key"
+                android:defaultValue="@color/startingColorBackground"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_end_background_title"
+                android:key="@string/color_end_background_key"
+                android:defaultValue="@color/endingColorBackground"
+                />
+
+            <ListPreference
+                android:title="@string/orientation_background_title"
+                android:dialogTitle="@string/orientation_background_title"
+                android:key="@string/orientation_background_key"
+                android:summary="@string/orientation_background_summary"
+                android:entries="@array/orientation_background_entries"
+                android:entryValues="@array/orientation_background_values"
+                android:defaultValue="@string/t_b"
+                />
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/colors_title">
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_upper_buttons_title"
+                android:key="@string/color_upper_buttons_key"
+                android:defaultValue="@color/colorUpperButtons"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_upper_buttons_stroke_title"
+                android:key="@string/color_upper_buttons_stroke_key"
+                android:defaultValue="@color/colorUpperButtonsStroke"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_lower_buttons_title"
+                android:key="@string/color_lower_buttons_key"
+                android:defaultValue="@color/colorBottomButtons"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_lower_buttons_stroke_title"
+                android:key="@string/color_lower_buttons_stroke_key"
+                android:defaultValue="@color/colorBottomButtonsStroke"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_deleting_buttons_title"
+                android:key="@string/color_deleting_buttons_key"
+                android:defaultValue="@color/colorDeletingButtons"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_deleting_buttons_stroke_title"
+                android:key="@string/color_deleting_buttons_stroke_key"
+                android:defaultValue="@color/colorDeletingButtonsStroke"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_navigation_button_title"
+                android:key="@string/color_navigation_button_key"
+                android:defaultValue="@color/colorNavigationButton"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_navigation_button_stroke_title"
+                android:key="@string/color_navigation_button_stroke_key"
+                android:defaultValue="@color/colorNavigationButtonStroke"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_display_title"
+                android:key="@string/color_display_key"
+                android:defaultValue="@color/colorDisplay"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/color_display_stroke_title"
+                android:key="@string/color_display_stroke_key"
+                android:defaultValue="@color/colorDisplayStroke"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_upper_buttons_title"
+                android:key="@string/text_color_upper_buttons_key"
+                android:defaultValue="@color/colorTextUpperButtons"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_lower_buttons_title"
+                android:key="@string/text_color_lower_buttons_key"
+                android:defaultValue="@color/colorTextBottomButtons"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_deleting_buttons_title"
+                android:key="@string/text_color_deleting_buttons_key"
+                android:defaultValue="@color/black"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_secondary_funs_title"
+                android:key="@string/text_color_secondary_funs_key"
+                android:defaultValue="@color/colorTextSecondaryFuns"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_variables_title"
+                android:key="@string/text_color_variables_key"
+                android:defaultValue="@color/colorVariables"
+                />
+
+            <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
+                android:title="@string/text_color_exp_growth_title"
+                android:key="@string/text_color_exp_growth_key"
+                android:defaultValue="@color/white"
+                />
+        </PreferenceCategory>
+
+        <PreferenceCategory android:title="@string/stroke_widths_title">
+            <SeekBarPreference
+                android:defaultValue="0"
+                android:max="12"
+                app:min="0"
+                android:title="@string/width_upper_buttons_stroke_title"
+                android:key="@string/width_upper_buttons_stroke_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                android:defaultValue="2"
+                android:max="12"
+                app:min="0"
+                android:title="@string/width_lower_buttons_stroke_title"
+                android:key="@string/width_lower_buttons_stroke_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                android:defaultValue="1"
+                android:max="12"
+                app:min="0"
+                android:title="@string/width_deleting_buttons_stroke_title"
+                android:key="@string/width_deleting_buttons_stroke_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                android:defaultValue="3"
+                android:max="12"
+                app:min="0"
+                android:title="@string/width_navigation_button_stroke_title"
+                android:key="@string/width_navigation_button_stroke_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                android:defaultValue="10"
+                android:max="20"
+                app:min="0"
+                android:title="@string/width_display_stroke_title"
+                android:key="@string/width_display_stroke_key"
+                app:showSeekBarValue="true"
+                />
+
+        </PreferenceCategory>
+
+
+        <PreferenceCategory android:title="@string/corner_radii_title">
+            <SeekBarPreference
+                app:min="0"
+                android:defaultValue="45"
+                android:max="250"
+                android:title="@string/top_corner_radii_upper_buttons_title"
+                android:key="@string/top_corner_radii_upper_buttons_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                app:min="0"
+                android:defaultValue="80"
+                android:max="250"
+                android:title="@string/bottom_corner_radii_upper_buttons_title"
+                android:key="@string/bottom_corner_radii_upper_buttons_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                app:min="0"
+                android:defaultValue="45"
+                android:max="250"
+                android:title="@string/top_corner_radii_lower_buttons_title"
+                android:key="@string/top_corner_radii_lower_buttons_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                app:min="0"
+                android:defaultValue="80"
+                android:max="250"
+                android:title="@string/bottom_corner_radii_lower_buttons_title"
+                android:key="@string/bottom_corner_radii_lower_buttons_key"
+                app:showSeekBarValue="true"
+                />
+
+            <SeekBarPreference
+                app:min="0"
+                android:defaultValue="125"
+                android:max="250"
+                android:title="@string/corner_radius_navigation_button_title"
+                android:key="@string/corner_radius_navigation_button_key"
+                app:showSeekBarValue="true"
+                />
+        </PreferenceCategory>
+    </PreferenceCategory>
+</PreferenceScreen>

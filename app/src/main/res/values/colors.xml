@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors for the background -->
+    <color name="blackStart">#060607</color>
+    <color name="blueBlack">#111f28</color>
+    <color name="greyEnd">#484e52</color>
+
+    <!-- Colors to add a little pop to the buttons -->
+    <color name="greyAccent">#afb9c5</color>
+    <color name="tanAccent">#e3cdb3</color>
+
+    <!-- Clear Button Colors -->
+    <color name="redBackground">#5a020b</color>
+    <color name="redAccent">#ff0000</color>
+
+    <!-- Equals Button Colors -->
+    <color name="greenBackground">#013300</color>
+    <color name="greenAccent">#2ffd64</color>
+
+    <!-- Math Operator Button Colors -->
+    <color name="purpleBackground">#330133</color>
+    <color name="purpleAccent">#de00de</color>
+
+
+
+
+    <!-- Del and AC Button Colors-->
+    <color name="orangeBackground">#ffad33</color>
+    <color name="orangeBackgroundTwo">#ffa71f</color>
+
+    <!-- Display background Colors-->
+    <color name="colorDisplay">#7F8BCE</color>
+    <color name="colorDisplayStroke">#FFBA55</color>
+
+    <!-- Button Colors-->
+    <color name="colorUpperButtons">#7F8BCE</color>
+    <color name="colorUpperButtonsStroke">#FFBA55</color>
+    <color name="colorBottomButtons">#131836</color>
+    <color name="colorBottomButtonsStroke">#FFBA55</color>
+    <color name="colorDeletingButtons">#FFA92A</color>
+    <color name="colorDeletingButtonsStroke">#E3CDB3</color>
+    <color name="colorNavigationButton">#273371</color>
+    <color name="colorNavigationButtonStroke">#FFBA55</color>
+
+
+    <color name="blueButtonBackground">#0419B1</color>
+
+    <!-- Colors for the background -->
+    <color name="startingColorBackground">#7F8BCE</color>
+<!--    <color name="greyBottom">#191921</color>-->
+    <color name="endingColorBackground">#141A3B</color>
+
+    <!--textview colors-->
+    <color name="greenOnClick">#03AC13</color>
+    <color name="colorVariables">#9FA8DA</color>
+
+    <!-- Text Colors    -->
+    <color name="colorTextUpperButtons">#20295B</color>
+    <color name="colorTextBottomButtons">#C5CBE9</color>
+    <color name="colorTextSecondaryFuns">#FF9800</color>
+
+
+</resources>
