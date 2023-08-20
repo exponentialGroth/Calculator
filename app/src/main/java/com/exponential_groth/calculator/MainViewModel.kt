@@ -16,7 +16,7 @@ class MainViewModel(private val repository: Repository): ViewModel() {
     val exception = MutableLiveData<Exception>()
     var job: Job? = null
 
-    private val parser = Parser(AngleUnit.DEGREE)
+    val parser = Parser(AngleUnit.DEGREE)
 
 
     fun init() {

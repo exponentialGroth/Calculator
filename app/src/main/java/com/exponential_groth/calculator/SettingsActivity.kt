@@ -16,6 +16,9 @@ class SettingsActivity : AppCompatActivity() {
 
         supportActionBar!!.title = getString(R.string.settings_title)
 
+        angleSummaries = resources.getStringArray(R.array.angle_unit_entries).toList()
+        outputTypeSummaries = listOf(getString(R.string.display_result_item_decimal), getString(R.string.display_result_item_fraction), getString(R.string.display_result_item_scientific), getString(R.string.display_result_item_eng))
+
         if (supportFragmentManager.findFragmentById(android.R.id.content) == null) {
             supportFragmentManager.beginTransaction().add(android.R.id.content, SettingsFragment()).commit()
         }
@@ -31,28 +34,28 @@ class SettingsActivity : AppCompatActivity() {
 
 
     companion object {
+        var angleSummaries: List<String>? = null
+        var outputTypeSummaries: List<String>? = null
         private val sBindPreferenceSummaryToValueListener = Preference.OnPreferenceChangeListener { preference, value ->
-            preference.summary = value.toString()
+            preference.summary = when (value) {
+                "deg" -> angleSummaries?.get(0)?: "deg"
+                "rad" -> angleSummaries?.get(1)?: "rad"
+                "gon" -> angleSummaries?.get(2)?: "gon"
+
+                "decimal" -> outputTypeSummaries?.get(0)?: "decimal"
+                "fraction" -> outputTypeSummaries?.get(1)?: "fraction"
+                "scientific" -> outputTypeSummaries?.get(2)?: "scientific"
+                "engineering" -> outputTypeSummaries?.get(3)?: "engineering"
+
+                else -> value.toString()
+            }
             true
         }
 
-        private fun bindPreferenceSummaryToValue(preference: Preference, list: List<String> = listOf()) {
-
+        private fun bindPreferenceSummaryToValue(preference: Preference) {
             preference.onPreferenceChangeListener = sBindPreferenceSummaryToValueListener
-
-            val value = when (PreferenceManager.getDefaultSharedPreferences(preference.context).getString(preference.key, "")) {
-                "deg" -> list[0]
-                "rad" -> list[1]
-
-                "decimal" -> list[0]
-                "fraction" -> list[1]
-                "scientific" -> list[2]
-                "engineering" -> list[3]
-
-                else -> PreferenceManager.getDefaultSharedPreferences(preference.context).getString(preference.key, "")
-            }
-
-            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, value)
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                PreferenceManager.getDefaultSharedPreferences(preference.context).getString(preference.key, ""))
         }
     }
 
@@ -60,11 +63,11 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment: PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             addPreferencesFromResource(R.xml.preferences)
-            findPreference<ListPreference>(getString(R.string.angle_key))?.let {
-                bindPreferenceSummaryToValue(it, listOf(getString(R.string.item_degree), getString(R.string.item_radians)))
+            for (pref in listOf(R.string.angle_key, R.string.orientation_background_key, R.string.display_result_key)) {
+                findPreference<ListPreference>(getString(pref))?.also {
+                    bindPreferenceSummaryToValue(it)
+                }
             }
-            findPreference<ListPreference>(getString(R.string.orientation_background_key))?.let { bindPreferenceSummaryToValue(it) }
-            findPreference<ListPreference>(getString(R.string.display_result_key))?.let { bindPreferenceSummaryToValue(it, listOf(getString(R.string.display_result_item_decimal), getString(R.string.display_result_item_fraction), getString(R.string.display_result_item_scientific), getString(R.string.display_result_item_eng))) }
         }
     }
 

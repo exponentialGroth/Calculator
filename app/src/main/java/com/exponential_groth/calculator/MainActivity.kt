@@ -22,7 +22,6 @@ import com.exponential_groth.calculator.parser.AngleUnit
 import com.exponential_groth.calculator.parser.IllegalExpressionException
 import com.exponential_groth.calculator.parser.MathException
 import com.exponential_groth.calculator.parser.MathExceptionType
-import com.exponential_groth.calculator.parser.Parser
 import com.exponential_groth.calculator.result.OutputType
 import com.exponential_groth.calculator.result.Result
 import com.exponential_groth.calculator.result.ResultManager
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     private var storageIsClicked = false
 
     private val editor = Editor()
-    private val parser = Parser(AngleUnit.DEGREE)
     private val resultManager = ResultManager()
 
     private var colorBackgroundStart = -1
@@ -665,7 +663,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun adaptToPreferences() {
-        parser.angleUnit = when (sharedPreferences.getString(getString(R.string.angle_key), "deg")) {
+        viewModel.parser.angleUnit = when (sharedPreferences.getString(getString(R.string.angle_key), "deg")) {
             "rad" -> AngleUnit.RADIAN
             "gon" -> AngleUnit.GRADIAN
             else -> AngleUnit.DEGREE
