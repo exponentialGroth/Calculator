@@ -6,6 +6,7 @@ import com.exponential_groth.calculator.editor.parsableFractionStart
 import com.exponential_groth.calculator.editor.parsableMixedFractionStart
 import com.exponential_groth.calculator.editor.parsableSeparator
 import com.exponential_groth.calculator.editor.square
+import com.exponential_groth.calculator.editor.texRecurringPartEnd
 import com.exponential_groth.calculator.editor.texSeparator
 import com.exponential_groth.calculator.editor.tokensWithoutSquare
 
@@ -155,7 +156,7 @@ enum class Operator(
     PERIOD("|", "\\overline{", 9) {
         override fun addToTex(l: ArrayList<String>, i: Int): Int {
             val end = indexOfDigitsEnd(l, i)
-            l.add(end, "}")
+            l.add(end, texRecurringPartEnd)
             if (end == i) l.add(i, square)
             l.add(i, texSymbol)
             return i+1

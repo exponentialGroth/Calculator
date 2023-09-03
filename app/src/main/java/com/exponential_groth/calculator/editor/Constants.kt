@@ -18,6 +18,7 @@ const val texLeftAbs = "\\vert "
 const val texRightAbs = " \\vert"
 const val texLeftBracket = "("
 const val texRightBracket = ")"
+const val texRecurringPartEnd = "  }"
 
 val exponentiationTypes = listOf(Operator.EXPONENTIATION, Operator.EXPONENTIATION__1, Operator.EXPONENTIATION_2, Operator.EXPONENTIATION_3)
 val tokensWithoutSquare = listOf(texRightAbs, texRightBracket, "}",

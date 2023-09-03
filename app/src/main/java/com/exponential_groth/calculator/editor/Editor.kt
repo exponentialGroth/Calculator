@@ -17,6 +17,7 @@ class Editor {
     private var pointInHistory = 0
 
     private val mixedFractionHandler = MixedFractionHandler()
+    private val recurringDecimalHandler = RecurringDecimalHandler()
     private var saveTo: String? = null
     private var editM: Boolean? = null
 
@@ -36,7 +37,9 @@ class Editor {
     var onClear: () -> Unit = {}
 
     fun getTexInput(withCursor: Boolean = true) = if (!withCursor) texInput.joinToString("") else
-        texInput.subList(0, texInputCursorPos).joinToString("").plus(cursor).let { it.takeIf { texInputCursorPos == texInput.size }?: it.plus(texInput.subList(texInputCursorPos, texInput.size).joinToString("")) }
+        texInput.subList(0, texInputCursorPos).joinToString("").plus(cursor)
+            .let { it.takeIf { texInputCursorPos == texInput.size }?:
+            it.plus(texInput.subList(texInputCursorPos, texInput.size).joinToString("")) }
 
     fun getParsableInput() = parsableInput.joinToString("")
 
@@ -53,7 +56,9 @@ class Editor {
 
     /** Inserts the respective string representation of [expr] in both inputs.*/
     fun add(expr: SingleSymbolExpression): Boolean {
-        if (mixedFractionHandler.isExpressionNotAllowed(expr)) return false
+        if (mixedFractionHandler.isExpressionNotAllowed(expr) ||
+            recurringDecimalHandler.isSingleSymbolExpressionNotAllowed(expr, texInput.getOrNull(texInputCursorPos-1))
+            ) return false
         beforeAdd()
         parsableInput.add(parsableInputCursorPos, (expr.parsable))
         parsableInputCursorPos++
@@ -64,7 +69,7 @@ class Editor {
     }
 
     fun add(variable: String): Boolean {
-        if (mixedFractionHandler.inWholePart) return false
+        if (mixedFractionHandler.inWholePart || recurringDecimalHandler.inRecurringPart) return false
         beforeAdd()
         texInput.add(texInputCursorPos, variable)
         parsableInput.add(parsableInputCursorPos, "<$variable>")
@@ -74,7 +79,7 @@ class Editor {
     }
 
     fun add(e: MathExpression): Boolean {
-        if (mixedFractionHandler.isExpressionNotAllowed(e)) return false
+        if (mixedFractionHandler.isExpressionNotAllowed(e) || recurringDecimalHandler.inRecurringPart) return false
         beforeAdd(e)
         if (e in exponentiationTypes && parsableInput.getOrNull(parsableInputCursorPos-1) == parsableExponentEnd) return false  // adding another exponent is only allowed with parentheses around the first power
         with(if (e is Function && hyperbolic) e.toHyperbolic() else e) {
@@ -83,6 +88,8 @@ class Editor {
         }
         if (e == Operator.MIXED_FRACTION && parsableInput[parsableInputCursorPos-1] == parsableMixedFractionStart) {
             mixedFractionHandler.inWholePart = true
+        } else if (e == Operator.PERIOD) {
+            recurringDecimalHandler.inRecurringPart = true
         }
         return true
     }
@@ -121,7 +128,13 @@ class Editor {
         }
 
         if (!onlyMoveTexCursorLeft) {
-            do { parsableInputCursorPos-- } while (illegalParsableCursorPos)
+            do {
+                parsableInputCursorPos--
+                if (parsableInput[parsableInputCursorPos] == Operator.PERIOD.parsableSymbol)
+                    recurringDecimalHandler.inRecurringPart = false
+            } while (illegalParsableCursorPos)
+        } else {
+            recurringDecimalHandler.inRecurringPart = true  // because currently, that is the only reason for onlyMoveTexCursorRight to be false
         }
         do { texInputCursorPos-- } while (illegalTexCursorPos)
 
@@ -147,7 +160,13 @@ class Editor {
         }
 
         if (!onlyMoveTexCursorRight) {
-            do { parsableInputCursorPos++ } while (illegalParsableCursorPos)
+            do {
+                if (parsableInput[parsableInputCursorPos] == Operator.PERIOD.parsableSymbol)
+                    recurringDecimalHandler.inRecurringPart = true
+                parsableInputCursorPos++
+            } while (illegalParsableCursorPos)
+        } else {
+            recurringDecimalHandler.inRecurringPart = false  // because currently, that is the only reason for onlyMoveTexCursorRight to be false
         }
         do { texInputCursorPos++ } while (illegalTexCursorPos)
 
@@ -188,14 +207,18 @@ class Editor {
             parsableInputCursorPos--
             return true
         }
+        val preventDigitAfterRecurringDecimal = texInput.getOrNull(texInputCursorPos-2) == texRecurringPartEnd &&
+                texInput.getOrNull(texInputCursorPos)?.let { it.length == 1 && it[0].isDigit() } == true
+        if (preventDigitAfterRecurringDecimal) return false
+
         if (parsableInputCursorPos == 0) moveRight()
         val elToDel = parsableInput[parsableInputCursorPos-1]
-        if (elToDel in parsableNonDeletableTokens) {
+        if (elToDel in parsableNonDeletableTokens || texInput[texInputCursorPos-1] == texRecurringPartEnd) {
             moveLeft()
             return true
         } else getExpressionTypeToDelete()?.also {
             it.removeFromParsable(parsableInput, parsableInputCursorPos)
-            it.removeFromTex(texInput, parsableInputCursorPos)
+            it.removeFromTex(texInput, texInputCursorPos)
         }?: run {
             parsableInput.removeAt(parsableInputCursorPos-1)
             texInput.removeAt(texInputCursorPos-1)
@@ -240,13 +263,10 @@ class Editor {
         texInputCursorPos != 0 && texInputCursorPos != texInput.size && texInput[texInputCursorPos-1] == square
 
     private val onlyMoveTexCursorRight get(): Boolean =
-        texInput[texInputCursorPos] == "}" && parsableInput[parsableInputCursorPos-1]
-            .let { it.length == 1 || it.first().isDigit() || it == Operator.PERIOD.parsableSymbol}
-                && parsableInput.getOrNull(parsableInputCursorPos) != "}}"
+        texInput.getOrNull(texInputCursorPos) == texRecurringPartEnd
 
     private val onlyMoveTexCursorLeft get(): Boolean =
-        texInput[texInputCursorPos-1] == "}" && parsableInput[parsableInputCursorPos-1]
-            .let { it.length == 1 || it.first().isDigit() || it == Operator.PERIOD.parsableSymbol}
+        texInput.getOrNull(texInputCursorPos-1) == texRecurringPartEnd
 
 
     private fun removeUnnecessarySquare() {  // only before adding something to the input
