@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Calculator.Button" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="shapeAppearance">@style/ShapeAppearance.Calculator.SmallComponent</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+
+    <style name="Widget.Calculator.Button.Top" parent="Widget.Calculator.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Calculator.UpperButton</item>
+    </style>
+    <style name="Widget.Calculator.Button.Orange" parent="Widget.Calculator.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Calculator.OrangeButton</item>
+    </style>
+    <style name="Widget.Calculator.Button.Bottom" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Calculator.LowerButton</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Calculator.SmallComponent</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Calculator.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">30dp</item>
+        <item name="cornerSizeBottomRight">30dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Calculator.UpperButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="colorContainer">@color/colorUpperButtons</item>
+        <item name="colorOnContainer">@color/colorTextUpperButtons</item>
+    </style>
+
+    <style name="ThemeOverlay.Calculator.LowerButton" parent="ThemeOverlay.Material3.Button">
+        <item name="colorContainer">@color/colorBottomButtons</item>
+        <item name="colorOnContainer">@color/colorTextBottomButtons</item>
+        <item name="strokeColor">@color/colorBottomButtonsStroke</item>
+    </style>
+
+    <style name="ThemeOverlay.Calculator.OrangeButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="colorContainer">@color/orangeBackground</item>
+        <item name="colorOnContainer">@color/black</item>
+    </style>
+</resources>

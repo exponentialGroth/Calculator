@@ -78,6 +78,16 @@ class Editor {
         return true
     }
 
+    fun add(constant: String, texConstant: String = constant): Boolean {
+        if (mixedFractionHandler.inWholePart || recurringDecimalHandler.inRecurringPart) return false
+        beforeAdd()
+        texInput.add(texInputCursorPos, texConstant)
+        parsableInput.add(parsableInputCursorPos, "<$constant>")
+        texInputCursorPos++
+        parsableInputCursorPos++
+        return true
+    }
+
     fun add(e: MathExpression): Boolean {
         if (mixedFractionHandler.isExpressionNotAllowed(e) || recurringDecimalHandler.inRecurringPart) return false
         beforeAdd(e)
@@ -236,6 +246,8 @@ class Editor {
             mixedFractionHandler.containsDecimalPoint = false
         } else if (mixedFractionHandler.inWholePart && texInput[texInputCursorPos] == square) {
             mixedFractionHandler.isWholePartEmpty = true
+        } else if (elToDel == Operator.PERIOD.parsableSymbol) {
+            recurringDecimalHandler.inRecurringPart = false
         }
         return true
     }

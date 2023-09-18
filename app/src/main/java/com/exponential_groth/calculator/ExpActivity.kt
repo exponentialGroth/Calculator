@@ -66,7 +66,7 @@ class ExpActivity : AppCompatActivity() {
             val populationAfterNYears = population.text.toString()
             val withCapacity = switch.isChecked
 
-            val editTextList = if (withCapacity) listOf<EditText>(initialPopulation, growthRate, carryingCapacity, numOfYears, population)
+            val editTextList = if (withCapacity) listOf(initialPopulation, growthRate, carryingCapacity, numOfYears, population)
             else listOf(initialPopulation, growthRate, numOfYears, population)
 
             val parameters = if (withCapacity) listOf(initialPopulationText, growthRateText, carryingCapacityText, n, populationAfterNYears)

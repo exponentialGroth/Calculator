@@ -2,6 +2,7 @@ package com.exponential_groth.calculator
 
 import android.content.*
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
@@ -19,6 +20,7 @@ import com.exponential_groth.calculator.editor.functionality.MathExpression
 import com.exponential_groth.calculator.editor.functionality.Operator
 import com.exponential_groth.calculator.editor.functionality.SingleSymbolExpression
 import com.exponential_groth.calculator.parser.AngleUnit
+import com.exponential_groth.calculator.parser.Constant
 import com.exponential_groth.calculator.parser.IllegalExpressionException
 import com.exponential_groth.calculator.parser.MathException
 import com.exponential_groth.calculator.parser.MathExceptionType
@@ -26,6 +28,7 @@ import com.exponential_groth.calculator.result.OutputType
 import com.exponential_groth.calculator.result.Result
 import com.exponential_groth.calculator.result.ResultManager
 import com.exponential_groth.mathview.MathView
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.math.RoundingMode
 
@@ -79,60 +82,60 @@ class MainActivity : AppCompatActivity() {
     private lateinit var calculatorDisplay: TextView
     private lateinit var displayContainer: LinearLayout
 
-    private lateinit var btn1: Button
-    private lateinit var btn2: Button
-    private lateinit var btn3: Button
-    private lateinit var btn4: Button
-    private lateinit var btn5: Button
-    private lateinit var btn6: Button
-    private lateinit var btn7: Button
-    private lateinit var btn8: Button
-    private lateinit var btn9: Button
-    private lateinit var btn10: ImageButton
-    private lateinit var btn11: Button
-    private lateinit var btn12: Button
-    private lateinit var btn13: Button
-    private lateinit var btn14: Button
-    private lateinit var btn15: Button
-    private lateinit var btn16: Button
-    private lateinit var btn17: Button
-    private lateinit var btn18: Button
-    private lateinit var btn19: Button
-    private lateinit var btn20: Button
-    private lateinit var btn21: Button
-    private lateinit var btn22: ImageButton
-    private lateinit var btn23: ImageButton
-    private lateinit var btn24: ImageButton
-    private lateinit var btn25: ImageButton
-    private lateinit var btn26: ImageButton
-    private lateinit var btn27: ImageButton
-    private lateinit var btn28: ImageButton
-    private lateinit var btn29: ImageButton
-    private lateinit var btn30: ImageButton
-    private lateinit var btn31: Button
-    private lateinit var btn32: Button
-    private lateinit var btn33: Button
-    private lateinit var btn34: Button
-    private lateinit var btn35: Button
-    private lateinit var btn36: Button
-    private lateinit var btn37: Button
-    private lateinit var btn38: Button
-    private lateinit var btn39: Button
-    private lateinit var btn40: Button
-    private lateinit var btn41: Button
-    private lateinit var btn42: Button
-    private lateinit var btnLeft: Button
-    private lateinit var btnDown: Button
-    private lateinit var btnRight: Button
-    private lateinit var btnUp: Button
+    private lateinit var btn1: MaterialButton
+    private lateinit var btn2: MaterialButton
+    private lateinit var btn3: MaterialButton
+    private lateinit var btn4: MaterialButton
+    private lateinit var btn5: MaterialButton
+    private lateinit var btn6: MaterialButton
+    private lateinit var btn7: MaterialButton
+    private lateinit var btn8: MaterialButton
+    private lateinit var btn9: MaterialButton
+    private lateinit var btn10: MaterialButton
+    private lateinit var btn11: MaterialButton
+    private lateinit var btn12: MaterialButton
+    private lateinit var btn13: MaterialButton
+    private lateinit var btn14: MaterialButton
+    private lateinit var btn15: MaterialButton
+    private lateinit var btn16: MaterialButton
+    private lateinit var btn17: MaterialButton
+    private lateinit var btn18: MaterialButton
+    private lateinit var btn19: MaterialButton
+    private lateinit var btn20: MaterialButton
+    private lateinit var btn21: MaterialButton
+    private lateinit var btn22: MaterialButton
+    private lateinit var btn23: MaterialButton
+    private lateinit var btn24: MaterialButton
+    private lateinit var btn25: MaterialButton
+    private lateinit var btn26: MaterialButton
+    private lateinit var btn27: MaterialButton
+    private lateinit var btn28: MaterialButton
+    private lateinit var btn29: MaterialButton
+    private lateinit var btn30: MaterialButton
+    private lateinit var btn31: MaterialButton
+    private lateinit var btn32: MaterialButton
+    private lateinit var btn33: MaterialButton
+    private lateinit var btn34: MaterialButton
+    private lateinit var btn35: MaterialButton
+    private lateinit var btn36: MaterialButton
+    private lateinit var btn37: MaterialButton
+    private lateinit var btn38: MaterialButton
+    private lateinit var btn39: MaterialButton
+    private lateinit var btn40: MaterialButton
+    private lateinit var btn41: MaterialButton
+    private lateinit var btn42: MaterialButton
+    private lateinit var btnLeft: MaterialButton
+    private lateinit var btnDown: MaterialButton
+    private lateinit var btnRight: MaterialButton
+    private lateinit var btnUp: MaterialButton
 
     private lateinit var navigationField:View
 
     private lateinit var imageView5: ImageView
     private lateinit var imageView6: ImageView
     private lateinit var imageView10: ImageView
+    private lateinit var imageView22: ImageView
     private lateinit var imageView25: ImageView
-    private lateinit var imageView26: ImageView
     private lateinit var imageView27: ImageView
     private lateinit var imageView28: ImageView
     private lateinit var imageView29: ImageView
@@ -142,11 +145,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageView36: ImageView
     private lateinit var imageView41: ImageView
 
+    private lateinit var btn10Content: ImageView
+    private lateinit var btn22Content: ImageView
+    private lateinit var btn23Content: ImageView
+    private lateinit var btn24Content: ImageView
+    private lateinit var btn25Content: ImageView
+    private lateinit var btn26Content: ImageView
+    private lateinit var btn27Content: ImageView
+    private lateinit var btn28Content: ImageView
+    private lateinit var btn29Content: ImageView
+    private lateinit var btn30Content: ImageView
+
     private lateinit var tV2: TextView
     private lateinit var tV3: TextView
     private lateinit var tV4: TextView
     private lateinit var tV7: TextView
     private lateinit var tV8: TextView
+    private lateinit var tV9: TextView
     private lateinit var tV16: TextView
     private lateinit var tV32: TextView
     private lateinit var tV38: TextView
@@ -327,7 +342,7 @@ class MainActivity : AppCompatActivity() {
         imageView6 = findViewById(R.id.imageView6)
         imageView10 = findViewById(R.id.imageView10)
         imageView25 = findViewById(R.id.imageView25)
-        imageView26 = findViewById(R.id.imageView26)
+        imageView22 = findViewById(R.id.imageView22)
         imageView27 = findViewById(R.id.imageView27)
         imageView28 = findViewById(R.id.imageView28)
         imageView29 = findViewById(R.id.imageView29)
@@ -337,11 +352,23 @@ class MainActivity : AppCompatActivity() {
         imageView36 = findViewById(R.id.imageView36)
         imageView41 = findViewById(R.id.imageView41)
 
+        btn10Content = findViewById(R.id.iV10)
+        btn22Content = findViewById(R.id.iV22)
+        btn23Content = findViewById(R.id.iV23)
+        btn24Content = findViewById(R.id.iV24)
+        btn25Content = findViewById(R.id.iV25)
+        btn26Content = findViewById(R.id.iV26)
+        btn27Content = findViewById(R.id.iV27)
+        btn28Content = findViewById(R.id.iV28)
+        btn29Content = findViewById(R.id.iV29)
+        btn30Content = findViewById(R.id.iV30)
+
         tV2 = findViewById(R.id.tV2)
         tV3 = findViewById(R.id.tV3)
         tV4 = findViewById(R.id.tV4)
         tV7 = findViewById(R.id.tV7)
         tV8 = findViewById(R.id.tV8)
+        tV9 = findViewById(R.id.tV9)
         tV16 = findViewById(R.id.tV16)
         tV32 = findViewById(R.id.tV32)
         tV38 = findViewById(R.id.tV38)
@@ -420,17 +447,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.buttonBlueRight to false -> moveRight()
                 R.id.buttonBlueTop to false -> moveUp()
                 R.id.buttonBlueBottom to false -> moveDown()
-                btn37.id to false -> {
-                    storageIsClicked = true
-                    btn37.setTextColor(getColor(R.color.greenOnClick))
-                    false
-                }
                 R.id.button2 to true -> startSettingsActivity()
                 R.id.button2 to false -> {
                     viewModel.evaluate(editor.getParsableInput(), editor.hasMultivaluedExpression)
                     false
                 }
-                R.id.button9 to false -> editor.del()
                 R.id.button5 to false -> {
                     resultManager.hide(); setResultText()
                     editor.ac()
@@ -440,12 +461,19 @@ class MainActivity : AppCompatActivity() {
                     false
                 }
                 R.id.button6 to true -> startExponentialActivity()
+                R.id.button9 to false -> editor.del()
+                R.id.button9 to true -> openConstantsBottomSheet()
                 R.id.button10 to false -> {
                     editor.add(Operator.MULTIPLICATION)
                     editor.add(Operator.EXPONENTIATION_10)
                 }
                 R.id.button32 to true -> primeFactorization()
                 R.id.button33 to false -> switchHyperbolic()
+                R.id.button37 to false -> {
+                    storageIsClicked = true
+                    btn37.setTextColor(getColor(R.color.greenOnClick))
+                    false
+                }
                 R.id.button38 to false -> engineeringNotation(false)
                 R.id.button38 to true -> engineeringNotation(true)
                 R.id.button41 to false -> switchSAndD()
@@ -598,6 +626,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun openConstantsBottomSheet(): Boolean {
+        val handleDecision: (Constant) -> Unit = {c ->
+            val update = editor.add(c.token, c.texRepr)
+            if (update) setCalculationText()
+        }
+        val sheet = ConstantsBottomSheet(handleDecision)
+        sheet.show(supportFragmentManager, ConstantsBottomSheet.TAG)
+        return false
+    }
+
     private fun startSettingsActivity(): Boolean {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
@@ -676,13 +714,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun adaptUIToPreferences() {
-        val upperImageButtons = listOf(btn22, btn23, btn24, btn25, btn26, btn27, btn28, btn29, btn30)
-        val upperButtons = listOf(btn21, btn31, btn32, btn33, btn34, btn35, btn36, btn37, btn38, btn39, btn40, btn41, btn42)
-        val lowerImageButtons = listOf(btn10)
-        val lowerButtons = listOf(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20)
+        val upperButtonContents = listOf(btn22Content, btn23Content, btn24Content, btn25Content, btn26Content, btn27Content, btn28Content, btn29Content, btn30Content)
+        val upperButtons = listOf(btn21, btn22, btn23, btn24, btn25, btn26, btn27, btn28, btn29, btn30, btn31, btn32, btn33, btn34, btn35, btn36, btn37, btn38, btn39, btn40, btn41, btn42)
+        val lowerButtonContents = listOf(btn10Content)
+        val lowerButtons = listOf(btn1, btn2, btn3, btn4, btn6, btn7, btn8, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20)
         val deletingButtons = listOf(btn5, btn9)
-        val secFunctionalityIVs = listOf(imageView5, imageView6, imageView10, imageView25, imageView26, imageView27, imageView28, imageView29, imageView30, imageView34, imageView35, imageView36, imageView41)
-        val secFunctionalityTVs = listOf(tV2, tV3, tV4, tV7, tV8, tV16, tV32, tV38, tV39, tV40, tvMMinus)
+        val secFunctionalityIVs = listOf(imageView5, imageView6, imageView10, imageView25, imageView22, imageView27, imageView28, imageView29, imageView30, imageView34, imageView35, imageView36, imageView41)
+        val secFunctionalityTVs = listOf(tV2, tV3, tV4, tV7, tV8, tV9, tV16, tV32, tV38, tV39, tV40, tvMMinus)
         val variableTVs = listOf(tVA, tVB, tVC, tVD, tVE, tVF, tVX, tVY, tVZ, tVM)
 
         //        background
@@ -709,58 +747,63 @@ class MainActivity : AppCompatActivity() {
 //        upper Buttons
         colorUpperButtons = sharedPreferences.getInt(getString(R.string.color_upper_buttons_key), getColor(R.color.colorUpperButtons))
         colorUpperButtonsStroke = sharedPreferences.getInt(getString(R.string.color_upper_buttons_stroke_key), getColor(R.color.colorUpperButtonsStroke))
+        textColorUpperButtons = sharedPreferences.getInt(getString(R.string.text_color_upper_buttons_key), getColor(R.color.colorTextUpperButtons))
         widthUpperButtonsStroke = sharedPreferences.getInt(getString(R.string.width_upper_buttons_stroke_key), 0)
         cornerRadiusUpperButtonsTop = sharedPreferences.getInt(getString(R.string.top_corner_radii_upper_buttons_key), 45)
         cornerRadiusUpperButtonsBottom = sharedPreferences.getInt(getString(R.string.bottom_corner_radii_upper_buttons_key), 80)
-
-        val upperButtonsDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(colorUpperButtons, colorUpperButtons)).apply {
-            setStroke(widthUpperButtonsStroke, colorUpperButtonsStroke)
-            shape = GradientDrawable.RECTANGLE
-            cornerRadii = FloatArray(8) { if (it < 4) cornerRadiusUpperButtonsTop.toFloat() else cornerRadiusUpperButtonsBottom.toFloat() }
+        val shapeModelUpperButtons = upperButtons.first().shapeAppearanceModel.toBuilder()
+            .setBottomLeftCornerSize(cornerRadiusUpperButtonsBottom.toFloat())
+            .setBottomRightCornerSize(cornerRadiusUpperButtonsBottom.toFloat())
+            .setTopRightCornerSize(cornerRadiusUpperButtonsTop.toFloat())
+            .setTopLeftCornerSize(cornerRadiusUpperButtonsTop.toFloat())
+            .build()
+        for (uBtn in upperButtons) {
+            uBtn.shapeAppearanceModel = shapeModelUpperButtons
+            uBtn.strokeWidth = widthUpperButtonsStroke
+            uBtn.strokeColor = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled)), intArrayOf(colorUpperButtonsStroke))
+            uBtn.setBackgroundColor(colorUpperButtons)
+            uBtn.setTextColor(textColorUpperButtons)
         }
-
-        for (upperButton in upperButtons) {
-            upperButton.background = upperButtonsDrawable
+        for (imageView in upperButtonContents) {
+            imageView.drawable.setTint(textColorUpperButtons)
         }
-        for (upperImageButton in upperImageButtons) {
-            upperImageButton.background = upperButtonsDrawable
-        }
-
 
 //      lower Buttons
         colorLowerButtons = sharedPreferences.getInt(getString(R.string.color_lower_buttons_key), getColor(R.color.colorBottomButtons))
         colorLowerButtonsStroke = sharedPreferences.getInt(getString(R.string.color_lower_buttons_stroke_key), getColor(R.color.colorBottomButtonsStroke))
+        textColorLowerButtons = sharedPreferences.getInt(getString(R.string.text_color_lower_buttons_key), getColor(R.color.colorTextBottomButtons) )
         widthLowerButtonsStroke = sharedPreferences.getInt(getString(R.string.width_lower_buttons_stroke_key), 2)
         cornerRadiusLowerButtonsTop = sharedPreferences.getInt(getString(R.string.top_corner_radii_lower_buttons_key), 45)
         cornerRadiusLowerButtonsBottom = sharedPreferences.getInt(getString(R.string.bottom_corner_radii_lower_buttons_key), 80)
-
-        val lowerButtonsDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(colorLowerButtons, colorLowerButtons)).apply {
-            setStroke(widthLowerButtonsStroke, colorLowerButtonsStroke)
-            shape = GradientDrawable.RECTANGLE
-            cornerRadii =  FloatArray(8) { if (it < 4) cornerRadiusLowerButtonsTop.toFloat() else cornerRadiusLowerButtonsBottom.toFloat() }
+        val shapeModelLowerButtons = lowerButtons.first().shapeAppearanceModel.toBuilder()
+            .setBottomLeftCornerSize(cornerRadiusLowerButtonsBottom.toFloat())
+            .setBottomRightCornerSize(cornerRadiusLowerButtonsBottom.toFloat())
+            .setTopRightCornerSize(cornerRadiusLowerButtonsTop.toFloat())
+            .setTopLeftCornerSize(cornerRadiusLowerButtonsTop.toFloat())
+            .build()
+        for (lBtn in lowerButtons) {
+            lBtn.shapeAppearanceModel = shapeModelLowerButtons
+            lBtn.strokeWidth = widthLowerButtonsStroke
+            lBtn.strokeColor = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled)), intArrayOf(colorLowerButtonsStroke))
+            lBtn.setBackgroundColor(colorLowerButtons)
+            lBtn.setTextColor(textColorLowerButtons)
         }
-        for (lowerButton in lowerButtons) {
-            lowerButton.background = lowerButtonsDrawable
+        for (imageView in lowerButtonContents) {
+            imageView.drawable.setTint(textColorLowerButtons)
         }
-        for (lowerImageButton in lowerImageButtons) {
-            lowerImageButton.background = lowerButtonsDrawable
-        }
-
 
 //        deleting Buttons
         colorDeletingButtons = sharedPreferences.getInt(getString(R.string.color_deleting_buttons_key), getColor(R.color.colorDeletingButtons))
         colorDeletingButtonsStroke = sharedPreferences.getInt(getString(R.string.color_deleting_buttons_stroke_key), getColor(R.color.colorDeletingButtonsStroke))
         widthDeletingButtonsStroke = sharedPreferences.getInt(getString(R.string.width_deleting_buttons_stroke_key), 1)
-
-        val deletingButtonsDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(colorDeletingButtons, colorDeletingButtons)).apply {
-            setStroke(widthDeletingButtonsStroke, colorDeletingButtonsStroke)
-            shape = GradientDrawable.RECTANGLE
-            cornerRadii = FloatArray(8) { if (it < 4) cornerRadiusLowerButtonsTop.toFloat() else cornerRadiusLowerButtonsBottom.toFloat() }
+        textColorDeletingButtons = sharedPreferences.getInt(getString(R.string.text_color_deleting_buttons_key), getColor(R.color.black))
+        for (dBtn in deletingButtons) {
+            dBtn.shapeAppearanceModel = shapeModelLowerButtons
+            dBtn.strokeWidth = widthDeletingButtonsStroke
+            dBtn.strokeColor = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_enabled)), intArrayOf(colorDeletingButtonsStroke))
+            dBtn.setBackgroundColor(colorDeletingButtons)
+            dBtn.setTextColor(textColorDeletingButtons)
         }
-        for (deletingButton in deletingButtons) {
-            deletingButton.background = deletingButtonsDrawable
-        }
-
 
 //        navigation Button
         colorNavigationButton = sharedPreferences.getInt(getString(R.string.color_navigation_button_key), getColor(R.color.colorNavigationButton))
@@ -778,7 +821,6 @@ class MainActivity : AppCompatActivity() {
         btnRight.setBackgroundColor(colorNavigationButton)
         btnDown.setBackgroundColor(colorNavigationButton)
 
-
 //        display
         colorDisplay = sharedPreferences.getInt(getString(R.string.color_display_key), getColor(R.color.colorDisplay))
         colorDisplayStroke = sharedPreferences.getInt(getString(R.string.color_display_stroke_key), getColor(R.color.colorDisplayStroke))
@@ -790,32 +832,7 @@ class MainActivity : AppCompatActivity() {
             cornerRadii = floatArrayOf(20F, 20F, 20F, 20F, 30F, 30F, 30F, 30F)
         }
 
-//        text upper Buttons
-        textColorUpperButtons = sharedPreferences.getInt(getString(R.string.text_color_upper_buttons_key), getColor(R.color.colorTextUpperButtons))
-        for (btn in upperButtons) {
-            btn.setTextColor(textColorUpperButtons)
-        }
-        for (btn in upperImageButtons) {
-            btn.drawable.setTint(textColorUpperButtons)
-        }
-
-//        text lower buttons
-        textColorLowerButtons = sharedPreferences.getInt(getString(R.string.text_color_lower_buttons_key), getColor(R.color.colorTextBottomButtons) )
-        for (btn in lowerButtons) {
-            btn.setTextColor(textColorLowerButtons)
-        }
-        for (imageButton in lowerImageButtons) {
-            imageButton.drawable.setTint(textColorLowerButtons)
-        }
-
-//        text deleting buttons
-        textColorDeletingButtons = sharedPreferences.getInt(getString(R.string.text_color_deleting_buttons_key), getColor(R.color.black))
-
-        for (delButton in deletingButtons) {
-            delButton.setTextColor(textColorDeletingButtons)
-        }
-
-//        text secondary functionality
+//        textColor secondary functionality
         textColorSecondaryFunctionality = sharedPreferences.getInt(getString(R.string.text_color_secondary_funs_key), getColor(R.color.colorTextSecondaryFuns) )
         for (imgView in secFunctionalityIVs) {
             imgView.drawable.setTint(textColorSecondaryFunctionality)
@@ -824,7 +841,7 @@ class MainActivity : AppCompatActivity() {
             tV.setTextColor(textColorSecondaryFunctionality)
         }
 
-//        text variables
+//        textColor variables
         textColorVariables = sharedPreferences.getInt(getString(R.string.text_color_variables_key), getColor(R.color.colorVariables))
         for (tV in variableTVs) {
             tV.setTextColor(textColorVariables)

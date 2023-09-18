@@ -123,7 +123,7 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/whole_blue_button_background"
-        app:layout_constraintBottom_toTopOf="@id/button24"
+        app:layout_constraintBottom_toTopOf="@id/container24"
         app:layout_constraintEnd_toStartOf="@id/imageView30"
         app:layout_constraintStart_toEndOf="@+id/imageView29"
         app:layout_constraintTop_toBottomOf="@id/TVCalculation" />
@@ -151,8 +151,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="0dp"
         android:text="@string/SToD"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintTop_toTopOf="@id/button38"
         app:layout_constraintStart_toStartOf="@id/button6"
@@ -181,8 +180,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
         android:text="@string/eng"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintBottom_toTopOf="@id/button32"
         app:layout_constraintStart_toStartOf="@id/button2"
@@ -194,10 +192,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="0dp"
         android:text="@string/extraMinus"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button6"
-        app:layout_constraintBottom_toTopOf="@id/button23"
+        app:layout_constraintBottom_toTopOf="@id/container23"
         app:layout_constraintStart_toStartOf="@id/button6"
         app:layout_constraintTop_toTopOf="@id/button32"/>
 
@@ -212,25 +209,39 @@
         android:contentDescription="@string/_10_x"
         android:scaleType="fitCenter"
         android:src="@drawable/bitmap_29"
-        app:layout_constraintBottom_toTopOf="@id/button29"
-        app:layout_constraintEnd_toEndOf="@id/button29"
-        app:layout_constraintStart_toStartOf="@id/button29"
+        app:layout_constraintBottom_toTopOf="@id/container29"
+        app:layout_constraintEnd_toEndOf="@id/container29"
+        app:layout_constraintStart_toStartOf="@id/container29"
         app:layout_constraintTop_toBottomOf="@id/navigationField" />
 
-    <ImageButton
-        android:id="@+id/button29"
+
+    <FrameLayout
+        android:id="@+id/container29"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="0dp"
-        android:background="@drawable/grey_buttons_background"
-        android:paddingHorizontal="3dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_29"
-        app:layout_constraintBottom_toTopOf="@id/button26"
-        app:layout_constraintEnd_toEndOf="@id/button10"
-        app:layout_constraintStart_toStartOf="@id/button10"
-        app:layout_constraintTop_toTopOf="@id/button32"
-        android:contentDescription="@string/log10" />
+        app:layout_constraintBottom_toTopOf="@id/container26"
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintStart_toStartOf="@id/container10"
+        app:layout_constraintTop_toTopOf="@id/button32">
+
+        <Button
+            android:id="@+id/button29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/log10" />
+
+        <ImageView
+            android:id="@+id/iV29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_29"
+            android:elevation="1dp"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="3dp"
+            android:contentDescription="@string/log10" />
+    </FrameLayout>
 
 
     <ImageView
@@ -240,28 +251,39 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="3dp"
         android:src="@drawable/bitmap_6"
-        app:layout_constraintBottom_toTopOf="@id/button24"
+        app:layout_constraintBottom_toTopOf="@id/container24"
         app:layout_constraintTop_toBottomOf="@id/navigationField"
-        app:layout_constraintStart_toStartOf="@id/button24"
-        app:layout_constraintEnd_toEndOf="@id/button24"
+        app:layout_constraintStart_toStartOf="@id/container24"
+        app:layout_constraintEnd_toEndOf="@id/container24"
         android:contentDescription="@string/euler_s_number" />
 
-    <ImageButton
-        android:id="@+id/button24"
+    <FrameLayout
+        android:id="@+id/container24"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="0dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="10dp"
-        android:src="@drawable/bitmap_btn_24"
-        app:layout_constraintBottom_toTopOf="@id/button27"
+        app:layout_constraintBottom_toTopOf="@id/container27"
         app:layout_constraintEnd_toEndOf="@id/button16"
         app:layout_constraintStart_toStartOf="@id/button16"
-        app:layout_constraintTop_toTopOf="@id/button32"
-        android:contentDescription="@string/logAOfBaseB" />
+        app:layout_constraintTop_toTopOf="@id/button32">
 
+        <Button
+            android:id="@+id/button24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/logAOfBaseB" />
+
+        <ImageView
+            android:id="@+id/iV24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_24"
+            android:elevation="1dp"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="8dp"
+            android:contentDescription="@string/logAOfBaseB" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/imageView30"
@@ -270,28 +292,41 @@
         android:src="@drawable/bitmap_30"
         android:layout_marginVertical="3dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="@id/button30"
-        app:layout_constraintEnd_toEndOf="@id/button30"
-        app:layout_constraintBottom_toTopOf="@id/button30"
+        app:layout_constraintStart_toStartOf="@id/container30"
+        app:layout_constraintEnd_toEndOf="@id/container30"
+        app:layout_constraintBottom_toTopOf="@id/container30"
         app:layout_constraintTop_toBottomOf="@id/navigationField"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:contentDescription="@string/e_x" />
 
-    <ImageButton
-        android:id="@+id/button30"
+    <FrameLayout
+        android:id="@+id/container30"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:paddingHorizontal="3dp"
-        android:paddingVertical="2dp"
-        android:src="@drawable/bitmap_btn_30"
-        app:layout_constraintBottom_toTopOf="@id/button22"
+        app:layout_constraintBottom_toTopOf="@id/container22"
         app:layout_constraintEnd_toEndOf="@id/button13"
         app:layout_constraintStart_toStartOf="@id/button13"
-        app:layout_constraintTop_toTopOf="@id/button32"
-        android:contentDescription="@string/ln" />
+        app:layout_constraintTop_toTopOf="@id/button32">
+
+        <Button
+            android:id="@+id/button30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/ln" />
+
+        <ImageView
+            android:id="@+id/iV30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_30"
+            android:elevation="1dp"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="3dp"
+            android:contentDescription="@string/ln" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tV32"
@@ -312,85 +347,138 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
         android:text="@string/x_factorial"
         android:textSize="18sp"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/button28"
+        style="@style/Widget.Calculator.Button.Top"
+        app:layout_constraintBottom_toTopOf="@id/container28"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintStart_toStartOf="@id/button2"
         app:layout_constraintTop_toBottomOf="@id/button38" />
 
-    <ImageButton
-        android:id="@+id/button23"
+    <FrameLayout
+        android:id="@+id/container23"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_23"
         app:layout_constraintBottom_toTopOf="@id/button37"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintStart_toStartOf="@id/button6"
-        app:layout_constraintTop_toBottomOf="@id/button31"
-        android:contentDescription="@string/x_1" />
+        app:layout_constraintTop_toBottomOf="@id/button31">
 
-    <ImageButton
-        android:id="@+id/button26"
+        <Button
+            android:id="@+id/button23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/x_1" />
+
+        <ImageView
+            android:id="@+id/iV23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_23"
+            android:elevation="1dp"
+            android:contentDescription="@string/x_1" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/container26"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_26"
         app:layout_constraintBottom_toTopOf="@id/button21"
-        app:layout_constraintEnd_toEndOf="@id/button10"
-        app:layout_constraintStart_toStartOf="@id/button10"
-        app:layout_constraintTop_toBottomOf="@id/button29"
-        android:contentDescription="@string/sqrt_x" />
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintStart_toStartOf="@id/container10"
+        app:layout_constraintTop_toBottomOf="@id/container29">
 
-    <ImageButton
-        android:id="@+id/button27"
+        <Button
+            android:id="@+id/button26"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/sqrt_x" />
+
+        <ImageView
+            android:id="@+id/iV26"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_26"
+            android:elevation="1dp"
+            android:contentDescription="@string/sqrt_x" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container27"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_27"
         app:layout_constraintBottom_toTopOf="@id/button33"
         app:layout_constraintEnd_toEndOf="@id/button16"
         app:layout_constraintStart_toStartOf="@id/button16"
-        app:layout_constraintTop_toBottomOf="@id/button24"
-        android:contentDescription="@string/x_2" />
+        app:layout_constraintTop_toBottomOf="@id/container24">
+
+        <Button
+            android:id="@+id/button27"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/x_2" />
+
+        <ImageView
+            android:id="@+id/iV27"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_27"
+            android:elevation="1dp"
+            android:contentDescription="@string/x_2" />
+    </FrameLayout>
 
     <ImageView
-        android:id="@+id/imageView26"
+        android:id="@+id/imageView22"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/bitmap_26"
+        android:src="@drawable/bitmap_22"
         android:layout_marginVertical="6dp"
-        app:layout_constraintStart_toStartOf="@id/button22"
-        app:layout_constraintEnd_toEndOf="@id/button22"
-        app:layout_constraintBottom_toTopOf="@id/button22"
-        app:layout_constraintTop_toBottomOf="@id/button30"
+        app:layout_constraintStart_toStartOf="@id/container22"
+        app:layout_constraintEnd_toEndOf="@id/container22"
+        app:layout_constraintBottom_toTopOf="@id/container22"
+        app:layout_constraintTop_toBottomOf="@id/container30"
         android:contentDescription="@string/cubic_root_of_x" />
 
-    <ImageButton
-        android:id="@+id/button22"
+
+
+    <FrameLayout
+        android:id="@+id/container22"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:cropToPadding="false"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_22"
-        app:layout_constraintBottom_toTopOf="@id/button25"
+        app:layout_constraintBottom_toTopOf="@id/container25"
         app:layout_constraintEnd_toEndOf="@id/button13"
         app:layout_constraintStart_toStartOf="@id/button13"
-        app:layout_constraintTop_toBottomOf="@id/button30"
-        android:contentDescription="@string/x_cubed" />
+        app:layout_constraintTop_toBottomOf="@id/container30">
+
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/x_cubed" />
+
+        <ImageView
+            android:id="@+id/iV22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_22"
+            android:elevation="1dp"
+            android:contentDescription="@string/x_cubed" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/imageView28"
@@ -398,25 +486,42 @@
         android:layout_height="0dp"
         android:src="@drawable/bitmap_28"
         android:layout_marginVertical="6dp"
-        app:layout_constraintStart_toStartOf="@id/button28"
-        app:layout_constraintEnd_toEndOf="@id/button28"
-        app:layout_constraintBottom_toTopOf="@id/button28"
+        app:layout_constraintStart_toStartOf="@id/container28"
+        app:layout_constraintEnd_toEndOf="@id/container28"
+        app:layout_constraintBottom_toTopOf="@id/container28"
         app:layout_constraintTop_toBottomOf="@id/button32"
         android:contentDescription="@string/nth_root_of_x" />
 
-    <ImageButton
-        android:id="@+id/button28"
+
+
+    <FrameLayout
+        android:id="@+id/container28"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_28"
         app:layout_constraintBottom_toTopOf="@id/button42"
         app:layout_constraintStart_toStartOf="@id/button2"
         app:layout_constraintEnd_toEndOf="@id/button2"
-        app:layout_constraintTop_toBottomOf="@id/button32"
-        android:contentDescription="@string/x_raised_to_y" />
+        app:layout_constraintTop_toBottomOf="@id/button32">
+
+        <Button
+            android:id="@+id/button28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/x_y" />
+
+        <ImageView
+            android:id="@+id/iV28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="1dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_28"
+            android:elevation="1dp"
+            android:contentDescription="@string/x_y"
+            android:clickable="false"/>
+    </FrameLayout>
 
 
     <TextView
@@ -429,7 +534,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="@id/button37"
-        app:layout_constraintTop_toBottomOf="@id/button23"
+        app:layout_constraintTop_toBottomOf="@id/container23"
         app:layout_constraintBottom_toTopOf="@id/button37"
         />
 
@@ -438,13 +543,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
         android:text="@string/sto"
-        android:textColor="@color/colorTextUpperButtons"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintBottom_toTopOf="@id/button39"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintStart_toStartOf="@id/button6"
-        app:layout_constraintTop_toBottomOf="@id/button23" />
+        app:layout_constraintTop_toBottomOf="@id/container23" />
 
     <Button
         android:id="@+id/button21"
@@ -453,12 +557,11 @@
         android:layout_marginTop="35dp"
         android:text="@string/abs"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
-        app:layout_constraintEnd_toEndOf="@id/button10"
+        style="@style/Widget.Calculator.Button.Top"
+        app:layout_constraintEnd_toEndOf="@id/container10"
         app:layout_constraintBottom_toTopOf="@id/button34"
-        app:layout_constraintStart_toStartOf="@id/button10"
-        app:layout_constraintTop_toBottomOf="@id/button26"/>
+        app:layout_constraintStart_toStartOf="@id/container10"
+        app:layout_constraintTop_toBottomOf="@id/container26"/>
 
     <Button
         android:id="@+id/button33"
@@ -467,12 +570,11 @@
         android:layout_marginTop="35dp"
         android:text="@string/hyp"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button16"
         app:layout_constraintBottom_toTopOf="@id/button35"
         app:layout_constraintStart_toStartOf="@id/button16"
-        app:layout_constraintTop_toBottomOf="@id/button27"/>
+        app:layout_constraintTop_toBottomOf="@id/container27"/>
 
 
     <ImageView
@@ -481,25 +583,41 @@
         android:layout_height="0dp"
         android:src="@drawable/bitmap_25"
         android:layout_marginVertical="5dp"
-        app:layout_constraintStart_toStartOf="@id/button25"
-        app:layout_constraintEnd_toEndOf="@id/button25"
-        app:layout_constraintBottom_toTopOf="@id/button25"
-        app:layout_constraintTop_toBottomOf="@id/button22"
+        app:layout_constraintStart_toStartOf="@id/container25"
+        app:layout_constraintEnd_toEndOf="@id/container25"
+        app:layout_constraintBottom_toTopOf="@id/container25"
+        app:layout_constraintTop_toBottomOf="@id/container22"
         android:contentDescription="@string/x_a_b" />
 
-    <ImageButton
-        android:id="@+id/button25"
+    <FrameLayout
+        android:id="@+id/container25"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bitmap_btn_25"
         app:layout_constraintBottom_toTopOf="@id/button36"
         app:layout_constraintEnd_toEndOf="@id/button13"
         app:layout_constraintStart_toStartOf="@id/button13"
-        app:layout_constraintTop_toBottomOf="@id/button22"
-        android:contentDescription="@string/x_y" />
+        app:layout_constraintTop_toBottomOf="@id/container22">
+
+        <Button
+            android:id="@+id/button25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Top"
+            android:contentDescription="@string/x_y" />
+
+        <ImageView
+            android:id="@+id/iV25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_25"
+            android:elevation="1dp"
+            android:contentDescription="@string/x_a_b" />
+    </FrameLayout>
+
+
 
 
     <TextView
@@ -511,7 +629,7 @@
         app:layout_constraintStart_toStartOf="@id/button42"
         app:layout_constraintEnd_toEndOf="@id/button42"
         app:layout_constraintBottom_toTopOf="@id/button42"
-        app:layout_constraintTop_toBottomOf="@id/button28"/>
+        app:layout_constraintTop_toBottomOf="@id/container28"/>
 
 
     <Button
@@ -520,12 +638,11 @@
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
         android:text="@string/m_plus"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintBottom_toTopOf="@id/button40"
         app:layout_constraintStart_toStartOf="@id/button2"
-        app:layout_constraintTop_toBottomOf="@id/button28"/>
+        app:layout_constraintTop_toBottomOf="@id/container28"/>
 
     <Button
         android:id="@+id/button39"
@@ -533,8 +650,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
         android:text="@string/leftBracket"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintBottom_toTopOf="@id/button9"
         app:layout_constraintStart_toStartOf="@id/button6"
@@ -561,11 +677,10 @@
         android:layout_marginTop="35dp"
         android:text="@string/sin"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
-        app:layout_constraintEnd_toEndOf="@id/button10"
+        style="@style/Widget.Calculator.Button.Top"
+        app:layout_constraintEnd_toEndOf="@id/container10"
         app:layout_constraintBottom_toTopOf="@id/button1"
-        app:layout_constraintStart_toStartOf="@id/button10"
+        app:layout_constraintStart_toStartOf="@id/container10"
         app:layout_constraintTop_toBottomOf="@id/button21"/>
 
 
@@ -587,10 +702,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/grey_buttons_background"
         android:text="@string/cos"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintBottom_toTopOf="@id/button20"
         app:layout_constraintEnd_toEndOf="@id/button16"
         app:layout_constraintHorizontal_bias="0.0"
@@ -608,7 +722,7 @@
         app:layout_constraintStart_toStartOf="@id/button36"
         app:layout_constraintEnd_toEndOf="@id/button36"
         app:layout_constraintBottom_toTopOf="@id/button36"
-        app:layout_constraintTop_toBottomOf="@id/button25"
+        app:layout_constraintTop_toBottomOf="@id/container25"
         android:contentDescription="@string/arctan" />
 
     <Button
@@ -618,12 +732,11 @@
         android:layout_marginTop="35dp"
         android:text="@string/tan"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button13"
         app:layout_constraintBottom_toTopOf="@id/button19"
         app:layout_constraintStart_toStartOf="@id/button13"
-        app:layout_constraintTop_toBottomOf="@id/button25"/>
+        app:layout_constraintTop_toBottomOf="@id/container25"/>
 
 
     <TextView
@@ -647,12 +760,21 @@
         android:layout_height="0dp"
         android:layout_marginTop="35dp"
         android:text="@string/rightBracket"
-        android:textColor="@color/colorTextUpperButtons"
-        android:background="@drawable/grey_buttons_background"
+        style="@style/Widget.Calculator.Button.Top"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintBottom_toTopOf="@id/button5"
         app:layout_constraintStart_toStartOf="@id/button2"
         app:layout_constraintTop_toBottomOf="@id/button42"/>
+
+    <TextView
+        android:id="@+id/tV9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextSecondaryFuns"
+        android:text="@string/constants"
+        app:layout_constraintStart_toStartOf="@+id/button9"
+        app:layout_constraintEnd_toEndOf="@+id/button9"
+        app:layout_constraintBottom_toTopOf="@+id/button9" />
 
     <Button
         android:id="@+id/button9"
@@ -660,10 +782,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/orange_buttons_background"
         android:text="@string/del"
-        android:textColor="@color/black"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Orange"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintStart_toStartOf="@id/button6"
         app:layout_constraintTop_toBottomOf="@id/button39"
@@ -688,12 +809,11 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/seven"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/button10"
-        app:layout_constraintStart_toStartOf="@id/button10"
+        style="@style/Widget.Calculator.Button.Bottom"
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintStart_toStartOf="@id/container10"
         app:layout_constraintTop_toBottomOf="@id/button34"
         app:layout_constraintBottom_toTopOf="@id/button18"/>
 
@@ -716,10 +836,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/eight"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintEnd_toEndOf="@id/button16"
         app:layout_constraintStart_toStartOf="@id/button16"
         app:layout_constraintTop_toBottomOf="@id/button35"
@@ -744,10 +863,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/nine"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintStart_toStartOf="@id/button13"
         app:layout_constraintEnd_toEndOf="@id/button13"
         app:layout_constraintTop_toBottomOf="@id/button36"
@@ -773,10 +891,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/orange_buttons_background"
         android:text="@string/ac"
-        android:textColor="@color/black"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Orange"
         app:layout_constraintBottom_toTopOf="@id/button4"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
@@ -799,10 +916,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/multiply"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintStart_toStartOf="@id/button6"
         app:layout_constraintTop_toBottomOf="@id/button9"
@@ -825,12 +941,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/four"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
-        app:layout_constraintStart_toStartOf="@+id/button10"
+        style="@style/Widget.Calculator.Button.Bottom"
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintStart_toStartOf="@id/container10"
         app:layout_constraintTop_toBottomOf="@+id/button1"
         app:layout_constraintBottom_toTopOf="@id/button17"/>
 
@@ -851,10 +966,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/five"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintEnd_toEndOf="@+id/button16"
         app:layout_constraintStart_toStartOf="@+id/button16"
         app:layout_constraintTop_toBottomOf="@+id/button20"
@@ -877,10 +991,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/six"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintEnd_toEndOf="@+id/button13"
         app:layout_constraintStart_toStartOf="@+id/button13"
         app:layout_constraintTop_toBottomOf="@id/button19"
@@ -903,10 +1016,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/divide"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toTopOf="@id/button3"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintStart_toStartOf="@id/button2"
@@ -929,10 +1041,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/add"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintEnd_toEndOf="@id/button6"
         app:layout_constraintStart_toStartOf="@id/button6"
         app:layout_constraintTop_toBottomOf="@id/button8"
@@ -955,13 +1066,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/one"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/button10"
-        app:layout_constraintEnd_toEndOf="@id/button10"
-        app:layout_constraintStart_toStartOf="@id/button10"
+        style="@style/Widget.Calculator.Button.Bottom"
+        app:layout_constraintBottom_toTopOf="@id/container10"
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintStart_toStartOf="@id/container10"
         app:layout_constraintTop_toBottomOf="@id/button18" />
 
     <TextView
@@ -981,10 +1091,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/two"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toTopOf="@id/button16"
         app:layout_constraintEnd_toEndOf="@+id/button16"
         app:layout_constraintStart_toStartOf="@+id/button16"
@@ -1006,10 +1115,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/three"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toTopOf="@id/button13"
         app:layout_constraintEnd_toEndOf="@+id/button13"
         app:layout_constraintStart_toStartOf="@+id/button13"
@@ -1032,10 +1140,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/subtract"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toTopOf="@id/button2"
         app:layout_constraintEnd_toEndOf="@id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
@@ -1058,13 +1165,12 @@
         android:layout_height="0dp"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="3dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/ans"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="18sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
+        app:layout_constraintEnd_toStartOf="@id/container10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
@@ -1074,27 +1180,42 @@
         android:layout_height="0dp"
         android:src="@drawable/bitmap_27"
         android:layout_marginVertical="2dp"
-        app:layout_constraintStart_toStartOf="@id/button10"
-        app:layout_constraintEnd_toEndOf="@id/button10"
-        app:layout_constraintBottom_toTopOf="@id/button10"
+        app:layout_constraintStart_toStartOf="@id/container10"
+        app:layout_constraintEnd_toEndOf="@id/container10"
+        app:layout_constraintBottom_toTopOf="@id/container10"
         app:layout_constraintTop_toBottomOf="@id/button17"
         android:contentDescription="@string/period" />
 
-    <ImageButton
-        android:id="@+id/button10"
+
+    <FrameLayout
+        android:id="@+id/container10"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="3dp"
-        android:background="@drawable/black_buttons_background"
-        android:scaleType="fitCenter"
-        android:paddingHorizontal="10dp"
-        android:src="@drawable/bitmap_btn_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button16"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button17"
-        android:contentDescription="@string/times_10_x" />
+        app:layout_constraintTop_toBottomOf="@+id/button17">
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.Calculator.Button.Bottom"
+            android:contentDescription="@string/times_10_x" />
+
+        <ImageView
+            android:id="@+id/iV10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="4dp"
+            android:layout_marginHorizontal="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bitmap_btn_10"
+            android:elevation="1dp"
+            android:contentDescription="@string/times_10_x" />
+    </FrameLayout>
 
 
     <ImageView
@@ -1116,14 +1237,13 @@
         android:layout_height="0dp"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="3dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/zero"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button13"
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/button14" />
+        app:layout_constraintEnd_toStartOf="@id/button13"
+        app:layout_constraintStart_toEndOf="@id/container10"
+        app:layout_constraintTop_toBottomOf="@id/button14" />
 
     <TextView
         android:id="@+id/tV40"
@@ -1144,10 +1264,9 @@
         android:layout_height="0dp"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="3dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/decimal"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toEndOf="@+id/button16"
@@ -1171,10 +1290,9 @@
         android:layout_marginStart="7dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="3dp"
-        android:background="@drawable/black_buttons_background"
         android:text="@string/equals"
-        android:textColor="@color/colorTextBottomButtons"
         android:textSize="20sp"
+        style="@style/Widget.Calculator.Button.Bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button13"

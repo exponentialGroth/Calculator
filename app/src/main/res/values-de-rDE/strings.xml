@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Taschenrechner</string>
-    <string name="prime_factorization">Primfaktorzerlegung</string>
-    <string name="storage">Speicher</string>
-    <string name="percent">Prozent</string>
+    <string name="constants">Konst.</string>
     <string name="convert_mixed_fraction_to_normal_one">Gemischten Bruch in normalen umwandeln</string>
     <string name="str_share">Teilen</string>
     <string name="settings">Einst.</string>
     <string name="angle_title">Winkelmessung</string>
     <string name="angle_summary">Wähle eine Einheit für Winkel</string>
-    <string name="copied_to_clipboard">In Zwischenablage kopiert</string>
     <string name="item_degree">Grad</string>
     <string name="item_radians">Radianten</string>
     <string name="general">Generell</string>
@@ -31,8 +28,6 @@
     <string name="orientation_background_title">Orientation des Hintergrundfarbverlaufs</string>
     <string name="no_conversion_eng">Keine Konvertierung zur Ingenieursschreibweise möglich.</string>
     <string name="no_factorization">Primfaktorzerlegung nicht möglich.</string>
-    <string name="converting_error">Konvertierung fehlgeschlagen</string>
-    <string name="parsing_error">Parsen nicht möglich</string>
     <string name="still_calculating">Noch am Rechnen. Drücke DEL oder AC zum Abbrechen.</string>
     <string name="settings_title">Einstellungen</string>
     <string name="orientation_background_summary">Wähle Winkel des Farbverlaufs</string>
@@ -75,15 +70,11 @@
     <string name="carrying_capacity_hint">Sättigungsgrenze</string>
     <string name="number_of_years">Populationsgröße nach</string>
     <string name="years">Jahren:</string>
-    <string name="population">Population</string>
     <string name="calculate">Berechnen</string>
     <string name="reset">Zurücksetzen</string>
     <string name="no_calculation">Keine Berechnung möglich!</string>
     <string name="missing_parameters">Zu wenig Werte gegeben!</string>
     <string name="text_color_exp_growth_title">Schriftfarbe Exponentielles Wachstum</string>
-    <string name="margins_title">Abstände zwischen Button-Reihen</string>
-    <string name="margin_upper_buttons_title">Obere Buttons</string>
-    <string name="margin_lower_buttons_title">Untere Buttons</string>
     <string name="nothing_to_convert">Falscher Input für diese Konvertierung.</string>
     <string name="item_gradian">Gon</string>
     <string name="unknown_error_msg">Ein Fehler ist aufgetreten.</string>
@@ -91,4 +82,36 @@
     <string name="domain_exception">Argument con %1$s ist nicht im Definitionsbereich.</string>
     <string name="infinity_exception">Ein Unendlich großer Wert tritt in der Rechung auf.</string>
     <string name="nothing_to_share">Nichts zum Teilen.</string>
+    <string name="constants_heading">Naturkonstanten</string>
+    <string name="important">Wichtig</string>
+    <string name="particles">Teilchenphysik</string>
+    <string name="quantum_physics">Quantenphysik</string>
+    <string name="other">Andere</string>
+    <string-array name="constants">
+        <item>Lichtgeschwindigkeit im Vaakuum</item>
+        <item>Permeabilität im Vaakuum</item>
+        <item>Permittivität im Vaakuum</item>
+        <item>Gravitationskonstante</item>
+        <item>Ruhemasse Elektron</item>
+        <item>Ruhemasse Neutron</item>
+        <item>Ruhemasse Proton</item>
+        <item>Elementarladung</item>
+        <item>Spezisische Ladung Elektron</item>
+        <item>Spezisische Ladung Proton</item>
+        <item>Ruhemasse Muon</item>
+        <item>Ruhemasse Deuteron</item>
+        <item>Planck-Konstante</item>
+        <item>Planck-Masse</item>
+        <item>Planck-Länge</item>
+        <item>Planck-Zeit</item>
+        <item>Rydberg-Konstante</item>
+        <item>Rydberg-Frequenz</item>
+        <item>Rydberg-Energie in J</item>
+        <item>Rydberg-Energie in eV</item>
+        <item>Atomare Masseeinheit</item>
+        <item>Avogadro-Konstante</item>
+        <item>Boltzmann-Konstante</item>
+        <item>Faraday-Konstante</item>
+        <item>Gaskonstante</item>
+    </string-array>
 </resources>

@@ -70,6 +70,22 @@ internal enum class Function(val arguments: Int = 1) {
 }
 
 
+enum class ConstantsType {
+    IMPORTANT, PARTICLE, QUANTUM_MECHANICS, OTHER
+}
+enum class Constant(val token: String, val value: Double, val type: ConstantsType, val texRepr: String = token) {  // values from https://physics.nist.gov/cuu/Constants/Table/allascii.txt
+    SPEED_OF_LIGHT("c", 299792458.0, ConstantsType.IMPORTANT), PERMEABILITY("mu", 1.25663706212e-6, ConstantsType.IMPORTANT, "\\mu_0"),
+    PERMITTIVITY("eps", 8.8541878128e-12, ConstantsType.IMPORTANT, "\\epsilon_0"), NEWTONIAN_CONSTANT_OF_GRAVITATION("G", 6.67430e-11, ConstantsType.IMPORTANT),
+    ELECTRON_MASS("me", 9.1093837015e-31, ConstantsType.PARTICLE, "m_e"), NEUTRON_MASS("mn", 1.67492749804e-27, ConstantsType.PARTICLE, "m_n"), PROTON_MASS("mpr", 1.67262192369e-27, ConstantsType.PARTICLE, "m_{pr}"),
+    ELEMENTARY_CHARGE("ee", 	1.602176634e-19, ConstantsType.PARTICLE, "e"),
+    ELECTRON_SPECIFIC_CHARGE("qe", -1.75882001076e11, ConstantsType.PARTICLE, "q_e"), PROTON_SPECIFIC_CHARGE("qp", 9.5788331560e7, ConstantsType.PARTICLE, "q_p"),
+    MUON_MASS("mm", 1.883531627e-28, ConstantsType.PARTICLE, "m_m"), DEUTERON_MASS("md", 3.3435837724e-27, ConstantsType.PARTICLE, "m_d"),
+    PLANCK_CONSTANT("h", 6.62607015e-34, ConstantsType.QUANTUM_MECHANICS), PLANCK_MASS("mpl", 2.176434e-08, ConstantsType.QUANTUM_MECHANICS, "m_p"), PLANCK_LENGTH("lp", 1.616255e-35, ConstantsType.QUANTUM_MECHANICS, "l_p"), PLANCK_TIME("tp", 5.391247e-44, ConstantsType.QUANTUM_MECHANICS, "t_p"),
+    RYDBERG_CONSTANT("ry", 10973731.56816, ConstantsType.QUANTUM_MECHANICS), RYDBERG_FREQUENCY("ryf", 3.2898419602508e+15, ConstantsType.QUANTUM_MECHANICS, "f_{Ry}"), RYDBERG_ENERGY_JOULE("ryj", 2.1798723611035e-18, ConstantsType.QUANTUM_MECHANICS, "E_{Ry}"), RYDBERG_ENERGY_EV("ryev", 13.605693122994, ConstantsType.QUANTUM_MECHANICS, "E_{Ry}"),
+    ATOMIC_MASS_UNIT("u", 1.66053906660e-27, ConstantsType.OTHER), AVOGADRO_CONSTANT("NA", 6.02214076e+23, ConstantsType.OTHER, "N_A"),
+    BOLTZMANN_CONSTANT("k", 1.380649e-23, ConstantsType.OTHER), FARADAY_CONSTANT("f", 96485.33212, ConstantsType.OTHER, "F"), MOLAR_GAS_CONSTANT("R", 8.314462618, ConstantsType.OTHER);
+}
+
 enum class AngleUnit {
     DEGREE, RADIAN, GRADIAN;
 }

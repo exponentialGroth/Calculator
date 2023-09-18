@@ -1,7 +1,11 @@
 package com.exponential_groth.calculator.parser
 
 
-internal class Tokenizer(private val input: String, private val variables: Map<String, Double>, private val constants: Map<String, Double> = mapOf("pi" to Math.PI, "e" to Math.E)) {
+internal class Tokenizer(
+    private val input: String,
+    private val variables: Map<String, Double>,
+    private val constants: Map<String, Double> = Constant.values().associate { it.token to it.value }.plus(listOf("pi" to Math.PI, "e" to Math.E))
+) {
     private var cursor = 0
     private var prevType: TokenType? = null
 
@@ -18,7 +22,7 @@ internal class Tokenizer(private val input: String, private val variables: Map<S
         if (type != TokenType.IDENTIFIER) return match.toDoubleOrNull()
         return try {
             Function.valueOf(match.uppercase()).ordinal.toDouble()
-        } catch (E: IllegalArgumentException) {
+        } catch (e: IllegalArgumentException) {
             -1.0
         }
     }

@@ -2,7 +2,7 @@
     <string name="app_name">Calculator</string>
 
 
-    <!--    Buttons-->
+    <!--  main activity-->
 
     <string name="zero" translatable="false">0</string>
     <string name="one" translatable="false">1</string>
@@ -17,7 +17,6 @@
     <string name="del" translatable="false">DEL</string>
     <string name="ac" translatable="false">AC</string>
     <string name="ans" translatable="false">Ans</string>
-    <string name="powerOfTen" translatable="false">×10^x</string>
     <string name="divide" translatable="false">÷</string>
     <string name="multiply" translatable="false">×</string>
     <string name="add" translatable="false">+</string>
@@ -52,6 +51,42 @@
     <string name="x_factorial" translatable="false">x!</string>
     <string name="str_share">Share</string>
     <string name="settings">Settings</string>
+    <string name="constants">Const.</string>
+
+    <!--  Constants-->
+    <string name="constants_heading">Physical Constants</string>
+    <string name="important">Important</string>
+    <string name="particles">Particle physics</string>
+    <string name="quantum_physics">Quantum physics</string>
+    <string name="other">Other</string>
+
+    <string-array name="constants">
+        <item>Speed of light</item>
+        <item>Permeability</item>
+        <item>Permittivity</item>
+        <item>Gravitational Constant</item>
+        <item>Electron mass</item>
+        <item>Neutron mass</item>
+        <item>Proton mass</item>
+        <item>Elementary charge</item>
+        <item>Electron specific charge</item>
+        <item>Proton specific charge</item>
+        <item>Muon mass</item>
+        <item>Deuteron mass</item>
+        <item>Planck constant</item>
+        <item>Planck mass</item>
+        <item>Planck length</item>
+        <item>Planck time</item>
+        <item>Rydberg constant</item>
+        <item>Rydberg frequency</item>
+        <item>Rydberg energy in J</item>
+        <item>Rydberg energy in eV</item>
+        <item>Atomic mass unit</item>
+        <item>Avogadro constant</item>
+        <item>Boltzmann constant</item>
+        <item>Faraday constant</item>
+        <item>Molar gas constant</item>
+    </string-array>
 
     <!--  Content Descriptions-->
 
@@ -67,7 +102,6 @@
     <string name="tan" translatable="false">tan</string>
 
     <string name="pi" translatable="false">Pi</string>
-    <string name="rcl" translatable="false">RCL</string>
     <string name="euler_s_number" translatable="false">Euler\'s Number</string>
     <string name="times_10_x" translatable="false">times 10^x</string>
     <string name="x_cubed" translatable="false">x^3</string>
@@ -77,29 +111,22 @@
     <string name="sqrt_x" translatable="false">sqrt x</string>
     <string name="period" translatable="false">period</string>
     <string name="nth_root_of_x" translatable="false">nth root of x</string>
-    <string name="x_raised_to_y" translatable="false">x^y</string>
     <string name="_10_x" translatable="false">10^x</string>
     <string name="e_x" translatable="false">e^x</string>
-    <string name="prime_factorization">Prime Factorization</string>
     <string name="arcsin" translatable="false">arcsin</string>
     <string name="arccos" translatable="false">arccos</string>
     <string name="arctan" translatable="false">arctan</string>
-    <string name="storage">storage</string>
     <string name="fact" translatable="false"><i>FACT</i></string>
     <string name="percent_sign" translatable="false">%</string>
-    <string name="percent">percent</string>
     <string name="convert_mixed_fraction_to_normal_one">convert mixed fraction to normal one</string>
 
 
     <!--    Toasts-->
     <string name="nothing_to_share">Nothing to share.</string>
-    <string name="copied_to_clipboard">Copied to Clipboard</string>
     <string name="nothing_to_convert">Nothing to convert</string>
     <string name="no_conversion_eng">Nothing to convert to engineering notation.</string>
     <string name="no_factorization">Prime factorization not possible.</string>
-    <string name="converting_error">Converting failed</string>
     <string name="illegal_expression_exception_msg">This expression is illegal.</string>
-    <string name="parsing_error">Parsing failed</string>
     <string name="still_calculating">Still calculating. Press DEL or AC to cancel the calculation.</string>
     <string name="unknown_error_msg">An Error occurred.</string>
     <string name="domain_exception">Not in the domain of %1$s</string>
@@ -264,14 +291,6 @@
     <string name="corner_radius_navigation_button_key" translatable="false">corner_radius_navigation_button</string>
 
 
-    <string name="margins_title">Margins between button rows</string>
-
-    <string name="margin_upper_buttons_title">Upper buttons</string>
-    <string name="margin_upper_buttons_key" translatable="false">margin_upper_buttons</string>
-    <string name="margin_lower_buttons_title">Bottom buttons</string>
-    <string name="margin_lower_buttons_key" translatable="false">margin_lower_buttons</string>
-
-
     <!--    exponential Activity-->
     <string name="exp_button" translatable="false">Exp.</string>
 
@@ -281,7 +300,6 @@
     <string name="carrying_capacity_hint">Carrying capacity</string>
     <string name="number_of_years">Population after</string>
     <string name="years">years:</string>
-    <string name="population">Population</string>
     <string name="calculate">Calculate</string>
     <string name="reset">Reset</string>
 
