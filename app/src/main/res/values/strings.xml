@@ -61,9 +61,9 @@
     <string name="other">Other</string>
 
     <string-array name="constants">
-        <item>Speed of light</item>
-        <item>Permeability</item>
-        <item>Permittivity</item>
+        <item>Speed of light in vacuum</item>
+        <item>Permeability in vacuum</item>
+        <item>Permittivity in vacuum</item>
         <item>Gravitational Constant</item>
         <item>Electron mass</item>
         <item>Neutron mass</item>
