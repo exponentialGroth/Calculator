@@ -74,14 +74,14 @@ enum class Function(
         override fun addToParsable(l: ArrayList<String>, i: Int): Int {
             l.add(indexOfExprEnd(l, i, parsable = true), "}")
             l.add(i, parsableNonDeletableSeparator)
-            val startIndex = indexOfExprStart(l, i-1, parsable = true)
+            val startIndex = indexOfExprStart(l, i-1, true)
             l.add(startIndex, parsableSymbol)
             return if (startIndex == i) i+1 else i+2
         }
         override fun addToTex(l: ArrayList<String>, i: Int): Int {
             l.add(indexOfExprEnd(l, i, parsable = true), "}")
             l.add(i, "]{")
-            val startIndex = indexOfExprStart(l, i-1, parsable = true)
+            val startIndex = indexOfExprStart(l, i-1, false)
             l.add(startIndex, texSymbol)
             return if (startIndex == i) i+1 else i+2
         }
