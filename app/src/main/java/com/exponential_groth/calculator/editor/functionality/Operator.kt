@@ -5,6 +5,7 @@ import com.exponential_groth.calculator.editor.parsableExponentEnd
 import com.exponential_groth.calculator.editor.parsableFractionStart
 import com.exponential_groth.calculator.editor.parsableMixedFractionStart
 import com.exponential_groth.calculator.editor.parsableSeparator
+import com.exponential_groth.calculator.editor.parsableTokensWithoutSquare
 import com.exponential_groth.calculator.editor.square
 import com.exponential_groth.calculator.editor.texRecurringPartEnd
 import com.exponential_groth.calculator.editor.texSeparator
@@ -65,7 +66,7 @@ enum class Operator(
             return addExponentiationToTex(l, i+1, emptyList())
         }
     },
-    FRACTION("}/{", "\\frac{", 7) {  // not 7 like in parser because implicit multiplication gets pulled into the fraction
+    FRACTION("}/{", "\\frac{", 7) {
         override fun addToParsable(l: ArrayList<String>, i: Int): Int {
             l.add(indexOfExprEnd(l, i, parsable = true), "}}")
             l.add(i, parsableSymbol)
@@ -192,7 +193,10 @@ enum class Operator(
         l.add(end, parsableExponentEnd)
         l.addAll(i, exponent)
         l.add(i, parsableSymbol)
-        return i + 1 + exponent.size.let { if (it != 0) it+1 else 0 }
+        return if (i == 0 || l[i-1] !in parsableTokensWithoutSquare && !l[i-1].let { it.length == 1 && it.first().isDigit()})
+            i
+        else
+            i + 1 + exponent.size.let { if (it != 0) it+1 else 0 }   // if (x⁻¹,x², x³) after exponentiation else start of exponent
     }
     internal fun addExponentiationToTex(l: ArrayList<String>, i: Int, exponent: List<String>): Int {
         val end = if (exponent.isEmpty()) indexOfExprEnd(l, i, false) else i
@@ -200,8 +204,11 @@ enum class Operator(
         l.addAll(i, exponent)
         l.add(i, texSymbol)
         if (exponent.isEmpty()) addSquareIfNecessary(l, end+1)
-        addSquareIfNecessary(l, i)
-        return i + 1 + exponent.size.let { if (it != 0) it+1 else 0 }
+        val cursorInBase = addSquareIfNecessary(l, i)
+        return if (cursorInBase)
+            i
+        else
+            i + 1 + exponent.size.let { if (it != 0) it+1 else 0 }  // if (x⁻¹,x², x³) after exponentiation else start of exponent
     }
     internal fun removeExponentiation(l: ArrayList<String>, i: Int) {
         if (l[i] == square) {
@@ -210,12 +217,14 @@ enum class Operator(
         l.removeAt(i-1)
     }
 
-    private fun addSquareIfNecessary(l: ArrayList<String>, i: Int) {
+    private fun addSquareIfNecessary(l: ArrayList<String>, i: Int): Boolean {
         if (i == 0 ||
             l[i-1] !in tokensWithoutSquare
             && !l[i-1].let { it.length == 1 && it.first().isDigit()}
         ) {
             l.add(i, square)
+            return true
         }
+        return false
     }
 }

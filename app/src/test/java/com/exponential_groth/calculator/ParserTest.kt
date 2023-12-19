@@ -78,6 +78,14 @@ class ParserTest {
                 Token(TokenType.SEPARATOR),
                 Token(TokenType.NUMBER, 3.0),
                 Token(TokenType.PARENTHESIS_RIGHT)
+            ),
+            "2^{3}!" to listOf(
+                Token(TokenType.NUMBER, 2.0),
+                Token(TokenType.EXPONENTIATION),
+                Token(TokenType.PARENTHESIS_LEFT),
+                Token(TokenType.NUMBER, 3.0),
+                Token(TokenType.PARENTHESIS_RIGHT),
+                Token(TokenType.FACTORIAL)
             )
         )
 
@@ -108,7 +116,8 @@ class ParserTest {
             ".5sqrt((1+3), 625) - 4" to 0.5 * 5 - 4,
             "sqrt(81) + 1" to 10.0,
             "5!-2" to 118.0,
-            "2.|3" to 2.333333333,
+            "2.|3" to 7.0/3,
+            "2^(3)!" to 40320.0,
         )
 
         val parser = Parser(AngleUnit.RADIAN)

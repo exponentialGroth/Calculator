@@ -12,7 +12,7 @@ import com.exponential_groth.calculator.editor.texRightAbs
 internal fun indexOfExprStart(l: List<String>, exprEnd: Int, parsable: Boolean, prec: Int = 5): Int {
     require(prec <= Operator.FRACTION.precedence)
     var openBrackets = 0
-    val lowerPrecSymbols = Operator.values().filter { it.precedence < prec }
+    val lowerPrecSymbols = Operator.entries.filter { it.precedence < prec }
         .map { if (parsable) it.parsableSymbol else it.texSymbol }
     for (i in exprEnd downTo 0) {
         val el = l[i]
@@ -27,18 +27,26 @@ internal fun indexOfExprStart(l: List<String>, exprEnd: Int, parsable: Boolean, 
  * Returns the successor of the index of the last element of the expression starting at [exprStart] and ending right before an operator with lower precedence than [prec] or the end of [l].
  * Outside of brackets, the expression will include only implicit multiplication and operators with lower precedence than [prec].
  * Fractions are not handled, so do not use a [prec] greater than [Operator.FRACTION.precedence].
+ * @throws IllegalArgumentException if [prec] > [Operator.FRACTION.precedence]
  */
 internal fun indexOfExprEnd(l: List<String>, exprStart: Int, parsable: Boolean, prec: Int = 5): Int {
     require(prec <= Operator.FRACTION.precedence)  // because fractions are not handled correctly (only operations without a symbol between brackets in a single list element are)
     var openBrackets = 0
-    val lowerPrecSymbols = Operator.values()
+    val lowerPrecSymbols = Operator.entries
         .filter { it.precedence < prec }
-        .map { if (parsable) it.parsableSymbol else it.texSymbol }
+        .map(if (parsable) {it -> it.parsableSymbol} else {it -> it.texSymbol})
         .let { if (parsable) it.plus(parsableNonDeletableSeparator) else it }
     for (i in exprStart until l.size) {
         val el = l[i]
         if (openBrackets == 0 && el in lowerPrecSymbols) return i
-        openBrackets += el.count { it == '{' || it == '(' } - el.count { it == '}' || it == ')' }
+        for (char in el) {
+            if (char == '{' || char == '(') {
+                openBrackets++
+            } else if (char == '}' || char == ')') {
+                if (openBrackets == 0) return i
+                openBrackets--
+            }
+        }
     }
     return l.size
 }

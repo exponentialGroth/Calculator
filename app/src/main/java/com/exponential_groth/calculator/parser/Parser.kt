@@ -161,7 +161,7 @@ class Parser(var angleUnit: AngleUnit) {
             TokenType.DEGREE -> left.convert(AngleUnit.DEGREE, angleUnit)
             TokenType.RADIAN -> left.convert(AngleUnit.RADIAN, angleUnit)
             TokenType.GRADIAN -> left.convert(AngleUnit.GRADIAN, angleUnit)
-            TokenType.EXPONENTIATION -> left.pow(expression(newPrec-1)) // -1 because of right associativity
+            TokenType.EXPONENTIATION -> left.pow(expression(newPrec)) // newPrec-1 would enable right associativity, but this causes problems with other types with same precedence as exponentiation,such as factorial, so the calculator permits chaining exponentiation without brackets
             else -> throw IllegalExpressionException("wrong token for infix")
         }
         if (result.isNaN()) throw MathException(when (token.type) {

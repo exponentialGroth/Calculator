@@ -21,7 +21,10 @@ const val texRightBracket = ")"
 const val texRecurringPartEnd = "  }"
 
 val exponentiationTypes = listOf(Operator.EXPONENTIATION, Operator.EXPONENTIATION__1, Operator.EXPONENTIATION_2, Operator.EXPONENTIATION_3)
-val tokensWithoutSquare = listOf(texRightAbs, texRightBracket, "}",
+val tokensWithoutSquare = listOf(texRightAbs, texRightBracket, "}", texRecurringPartEnd,
     Operator.FACTORIAL.texSymbol, Operator.PERCENT.texSymbol, Operator.DEGREE.texSymbol, Operator.RADIAN.texSymbol, Operator.GRADIAN.texSymbol,
     SingleSymbolExpression.PI.tex, SingleSymbolExpression.E.tex, SingleSymbolExpression.POINT.tex)
+val parsableTokensWithoutSquare = listOf(")", "}", parsableExponentEnd,  // to determine the cursor position after adding an exponentiation to the parsable list
+    Operator.FACTORIAL.parsableSymbol, Operator.PERCENT.parsableSymbol, Operator.DEGREE.parsableSymbol, Operator.RADIAN.parsableSymbol, Operator.GRADIAN.parsableSymbol,
+    SingleSymbolExpression.PI.parsable, SingleSymbolExpression.E.parsable, SingleSymbolExpression.POINT.parsable)
 val parsableNonDeletableTokens = listOf(Operator.FRACTION.parsableSymbol, parsableNonDeletableSeparator, "}", "}}", "+{")

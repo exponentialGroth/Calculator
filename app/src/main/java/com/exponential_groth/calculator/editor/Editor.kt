@@ -92,7 +92,7 @@ class Editor {
         if (mixedFractionHandler.isExpressionNotAllowed(e) || recurringDecimalHandler.inRecurringPart) return false
         beforeAdd(e)
         if (e in exponentiationTypes && parsableInput.getOrNull(parsableInputCursorPos-1) == parsableExponentEnd) return false  // adding another exponent is only allowed with parentheses around the first power
-        with(if (e is Function && hyperbolic) e.toHyperbolic() else e) {
+        with (if (e is Function && hyperbolic) e.toHyperbolic() else e) {
             parsableInputCursorPos = addToParsable(parsableInput, parsableInputCursorPos)
             texInputCursorPos = addToTex(texInput, texInputCursorPos)
         }
@@ -300,8 +300,8 @@ class Editor {
         return when (val input = parsableInput[parsableInputCursorPos-1].removeSuffix("(")) {
             parsableFractionStart -> Operator.FRACTION
             parsableMixedFractionStart -> Operator.MIXED_FRACTION
-            else -> Operator.values().find { it.parsableSymbol == input}
-                ?: Function.values().find { it.parsableSymbol == input }.takeUnless { it == Function.SQRT }  // because there are two versions of sqrt
+            else -> Operator.entries.find { it.parsableSymbol == input}
+                ?: Function.entries.find { it.parsableSymbol == input }.takeUnless { it == Function.SQRT }  // because there are two versions of sqrt
                 ?: when (texInput[texInputCursorPos-1]) {
                     Function.SQRT.texSymbol -> Function.SQRT
                     Function.RT.texSymbol -> Function.RT
