@@ -75,10 +75,13 @@ enum class Operator(
             return if (start == i) i+1 else i+2
         }
         override fun addToTex(l: ArrayList<String>, i: Int): Int {
-            l.add(indexOfExprEnd(l, i, parsable = false), "}")
+            val end = indexOfExprEnd(l, i, parsable = false)
+            l.add(end, "}")
+            if (end == i) l.add(i, square)
             l.add(i, "}{")
             val start = indexOfExprStart(l, i-1, parsable = false)
             l.add(start, texSymbol)
+            if (start == i) l.add(i+1, square)
             return if (start == i) i+1 else i+2
         }
 
