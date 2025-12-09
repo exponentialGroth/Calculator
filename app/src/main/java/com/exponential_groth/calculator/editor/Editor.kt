@@ -32,7 +32,7 @@ class Editor {
     var hyperbolic = false
     val isEmpty get() = parsableInput.isEmpty()
     val hasMultivaluedExpression get() =
-        (parsableInput.first().removeSuffix("(") in listOf(Function.POL.parsableSymbol, Function.REC.parsableSymbol)) &&
+        parsableInput.isNotEmpty() && (parsableInput.first().removeSuffix("(") in listOf(Function.POL.parsableSymbol, Function.REC.parsableSymbol)) &&
             indexOfClosingBracket(parsableInput, 1, '(' to ')') in listOf(-1, parsableInput.size-1)
     var onClear: () -> Unit = {}
 
