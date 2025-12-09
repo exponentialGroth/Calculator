@@ -211,9 +211,9 @@ class Editor {
         if ((saveTo != null || editM != null) && texInputCursorPos == texInput.size) {
             saveTo = null
             editM = null
-            texInput.removeLast()
+            texInput.removeAt(texInput.lastIndex)
             texInputCursorPos--
-            parsableInput.removeLast()
+            parsableInput.removeAt(parsableInput.lastIndex)
             parsableInputCursorPos--
             return true
         }
