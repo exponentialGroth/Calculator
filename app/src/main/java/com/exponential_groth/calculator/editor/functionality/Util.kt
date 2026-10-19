@@ -17,8 +17,11 @@ internal fun indexOfExprStart(l: List<String>, exprEnd: Int, parsable: Boolean, 
     for (i in exprEnd downTo 0) {
         val el = l[i]
         if (openBrackets == 0 && el in lowerPrecSymbols) return i+1
-        openBrackets += el.count { it == '}' || it == ')' } - el.count { it == '{' || it == '(' }
-        if (openBrackets < 0) return i+1
+        for (c in el.reversed()) {
+            if (c in listOf('{', '(')) openBrackets--
+            else if (c in listOf('}', ')')) openBrackets++
+            if (openBrackets < 0) return i+1
+        }
     }
     return 0
 }

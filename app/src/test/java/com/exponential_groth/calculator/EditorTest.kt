@@ -22,8 +22,44 @@ class EditorTest {
     }
 
     @Test
-    fun move() {
+    fun nestedFractions() {
+        val editor = Editor()
+        with (editor) {
+            add(Operator.FRACTION)
+            moveRight()
+            add(Operator.FRACTION)
+        }
+        assertEquals("\\frac{\\square}{\\frac{\\square}{\\square}}", editor.getTexInput(withCursor = false).filter { it != ' ' })
+        assertEquals("{{}/{{{}/{}}}}", editor.getParsableInput().filter { it != ' ' })
 
+        with(editor) {
+            ac()
+            add(SingleSymbolExpression._7)
+            add(SingleSymbolExpression._1)
+            moveLeft()
+            add(Operator.FRACTION)
+            add(Operator.FRACTION)
+            add(SingleSymbolExpression._9)
+        }
+        assertEquals("\\frac{7}{\\frac{9}{1}}", editor.getTexInput(withCursor = false).filter { it != ' ' })
+        assertEquals("{{7}/{{{9}/{1}}}}", editor.getParsableInput().filter { it != ' ' })
+
+    }
+
+    @Test
+    fun ansSquaredWithoutSquare() {
+        val editor = Editor()
+        with(editor) {
+            add(SingleSymbolExpression._5)
+            hasEvaluated = true
+            add(Operator.EXPONENTIATION_2)
+        }
+
+        assertEquals("Ans^{2}", editor.getTexInput(withCursor = false).filter { it != ' ' })
+    }
+
+    @Test
+    fun move() {
     }
 
     @Test
