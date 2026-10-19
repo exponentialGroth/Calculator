@@ -1,17 +1,25 @@
 package com.exponential_groth.calculator
 
 import com.exponential_groth.calculator.editor.Editor
+import com.exponential_groth.calculator.editor.cursor
 import com.exponential_groth.calculator.editor.functionality.Function
 import com.exponential_groth.calculator.editor.functionality.Operator
 import com.exponential_groth.calculator.editor.functionality.SingleSymbolExpression
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 
 class EditorTest {
 
+    private lateinit var editor: Editor
+
+    @Before
+    fun setUp() {
+        editor = Editor()
+    }
+
     @Test
     fun add() {
-        val editor = Editor()
         with (editor) {
             add(SingleSymbolExpression._2)
             add(Operator.FRACTION)
@@ -23,7 +31,6 @@ class EditorTest {
 
     @Test
     fun nestedFractions() {
-        val editor = Editor()
         with (editor) {
             add(Operator.FRACTION)
             moveRight()
@@ -48,7 +55,6 @@ class EditorTest {
 
     @Test
     fun ansSquaredWithoutSquare() {
-        val editor = Editor()
         with(editor) {
             add(SingleSymbolExpression._5)
             hasEvaluated = true
@@ -64,6 +70,12 @@ class EditorTest {
 
     @Test
     fun delete() {
+        with (editor) {
+            add(SingleSymbolExpression._8)
+            add(Operator.EXPONENTIATION_2)
+            del()
 
+            assertEquals("8^{2${cursor}}".filter { it != ' ' }, editor.getTexInput(withCursor = true).filter { it != ' ' })
+        }
     }
 }

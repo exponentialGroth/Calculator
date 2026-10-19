@@ -27,4 +27,4 @@ val tokensWithoutSquare = listOf(texRightAbs, texRightBracket, "}", texRecurring
 val parsableTokensWithoutSquare = listOf(")", "}", parsableExponentEnd,  // to determine the cursor position after adding an exponentiation to the parsable list
     Operator.FACTORIAL.parsableSymbol, Operator.PERCENT.parsableSymbol, Operator.DEGREE.parsableSymbol, Operator.RADIAN.parsableSymbol, Operator.GRADIAN.parsableSymbol,
     SingleSymbolExpression.PI.parsable, SingleSymbolExpression.E.parsable, SingleSymbolExpression.POINT.parsable)
-val parsableNonDeletableTokens = listOf(Operator.FRACTION.parsableSymbol, parsableNonDeletableSeparator, "}", "}}", "+{")
+val parsableNonDeletableTokens = listOf(Operator.FRACTION.parsableSymbol, parsableNonDeletableSeparator, "}", "}}", "+{", parsableExponentEnd)
