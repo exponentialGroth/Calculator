@@ -26,6 +26,7 @@ class Editor {
             if (parsableInput.isNotEmpty() && value) {
                 parsableHistory.add(parsableInput.map { it })
                 texHistory.add(texInput.map { it })
+                recurringDecimalHandler.inRecurringPart = false
             }
             field = value
         }
