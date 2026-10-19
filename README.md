@@ -22,7 +22,7 @@
 
 ## Download
 
-You can get the app either from [Google Play](https://play.google.com/store/apps/details?id=com.exponential_groth.calculator) or install the [Android App Bundle](app/release/app-release.aab) manually.
+You can get the app either from [Google Play](https://play.google.com/store/apps/details?id=com.exponential_groth.calculator) or install the [APK](app/release/app-release.apk).
 
 ## Features
 
